@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jamyandagva Zulkhuu</title><style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
-:root{--ink:#202022;--cream:#faf8f0;--rose:#f7b7be;--gold:#ffdd4a;--blue:#003262;--mint:#bcebd6}
+:root{--ink:#161616;--cream:#faf8f0;--blue:#003262;--gold:#fdb515}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.45 'DM Sans',sans-serif;overflow-x:hidden}
@@ -18,48 +18,51 @@ header{padding:22px 0}
 .chip{font:12px 'DM Mono',monospace;background:var(--gold);padding:8px 11px;display:inline-block;transform:rotate(-2deg)}
 h1{font:700 clamp(58px,10vw,140px)/.82 'Playfair Display',serif;letter-spacing:-.075em;margin:26px 0 36px;max-width:950px}
 .hero-grid{display:grid;grid-template-columns:1fr 310px;gap:45px;align-items:end}
-.hero-copy{font-size:20px;max-width:630px}
+.hero-copy{font-size:20px;max-width:630px;margin:0 0 22px}
+.hero-photo{width:100%;max-width:400px;aspect-ratio:16/9;object-fit:cover;border:3px solid var(--blue);display:block;background:var(--blue) url('campanile.jpg') center/cover}
 .hero-card{background:var(--ink);color:#fff;padding:24px;transform:rotate(2deg);box-shadow:12px 12px 0 var(--blue);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
-.hero-card small{font:12px 'DM Mono',monospace;color:var(--mint);align-self:flex-start}
-.hero-card p{margin:0;font:700 15px 'Playfair Display',serif;letter-spacing:.02em}
-.map-graphic{margin-top:22px}
+.hero-card small{font:12px 'DM Mono',monospace;color:var(--gold);align-self:flex-start}
+.logo-photo{width:88px;height:88px;object-fit:contain;background:#fff url('uc-berkeley-logo.jpg') center/contain no-repeat;border:1px solid #333}
 .section{padding:96px 0}
 .k{font:12px 'DM Mono',monospace;text-transform:uppercase;color:var(--blue);margin-bottom:17px}
 .title{font:700 47px/.96 'Playfair Display',serif;margin:0 0 40px;letter-spacing:-.05em}
 .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.project{min-height:310px;padding:23px;display:flex;flex-direction:column;text-decoration:none;transition:.25s;box-shadow:0 0 0 1px var(--ink)}
-.project:hover{transform:translateY(-9px) rotate(-1deg);box-shadow:9px 9px 0 var(--ink)}
-.project:nth-child(1){background:var(--gold)}
-.project:nth-child(2){background:var(--mint)}
-.project:nth-child(3){background:var(--rose)}
-.project .num{font:12px 'DM Mono',monospace}
-.project h3{font:700 31px/.95 'Playfair Display',serif;margin:auto 0 12px;letter-spacing:-.05em}
+.project{border:1px solid var(--ink);text-decoration:none;transition:.25s;display:flex;flex-direction:column;background:#fff}
+.project:hover{transform:translateY(-6px);box-shadow:8px 8px 0 var(--blue)}
+.project img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--blue)}
+.project .body{padding:20px;border-top:3px solid var(--gold)}
+.project .num{font:12px 'DM Mono',monospace;color:var(--blue)}
+.project h3{font:700 26px/1 'Playfair Display',serif;margin:10px 0 10px;letter-spacing:-.03em}
 .project p{margin:0;font-size:14px}
-.project b{margin-top:20px;font:12px 'DM Mono',monospace}
+.project b{display:block;margin-top:16px;font:12px 'DM Mono',monospace;color:var(--blue)}
 .journey{border-top:1px solid var(--ink)}
-.job{display:grid;grid-template-columns:160px 1fr;gap:30px;padding:26px 0;border-bottom:1px solid var(--ink)}
+.job{display:grid;grid-template-columns:44px 130px 1fr;gap:20px;align-items:start;padding:26px 0;border-bottom:1px solid var(--ink)}
+.job img{width:44px;height:44px;object-fit:cover;border:1px solid var(--ink);background:var(--blue)}
 .job time{font:12px 'DM Mono',monospace;color:var(--blue)}
 .job h3{margin:0;font-size:20px}
 .job p{margin:7px 0 0;max-width:700px}
 .about{background:var(--ink);color:#fff}
 .about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:60px}
-.about .k{color:var(--mint)}
+.about .k{color:var(--gold)}
 .about .title{font-size:50px}
-.facts{border-top:1px solid #777}
-.fact{padding:13px 0;border-bottom:1px solid #777;display:flex;justify-content:space-between;font-size:13px}
-.fact span{color:#aaa}
-.tools{display:flex;flex-wrap:wrap;gap:9px}
-.tools span{padding:8px 11px;border:1px solid var(--ink);font:12px 'DM Mono',monospace}
-.about .tools span{border-color:#777}
-footer{padding:40px 0;background:var(--rose)}
+.hobbies{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hobby{border:1px solid #444;padding:16px 18px;display:flex;align-items:center;gap:14px}
+.hobby img{width:40px;height:40px;object-fit:cover;border:1px solid var(--gold);flex:none;background:var(--blue)}
+.hobby span{font:12px 'DM Mono',monospace;color:var(--gold);display:block}
+.hobby b{font:600 18px 'Playfair Display',serif}
+.facts{border-top:1px solid #444;margin-top:34px}
+.fact{padding:13px 0;border-bottom:1px solid #444;display:flex;justify-content:space-between;font-size:13px}
+.fact span{color:#999}
+.fact b{color:var(--gold)}
+footer{padding:40px 0;background:var(--gold)}
 .foot{display:flex;justify-content:space-between;align-items:end}
-.foot h2{font:700 52px/.85 'Playfair Display',serif;letter-spacing:-.06em;margin:0}
+.foot h2{font:700 52px/.85 'Playfair Display',serif;letter-spacing:-.06em;margin:0;color:var(--blue)}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-@media(max-width:720px){.w{padding:0 20px}.nav nav{gap:12px}.hero{padding-top:48px}.hero-grid,.about-grid{grid-template-columns:1fr}.hero-card{max-width:320px;margin-left:auto}.projects{grid-template-columns:1fr}.project{min-height:220px}.section{padding:65px 0}.job{grid-template-columns:1fr;gap:6px}.foot{display:block}.foot a{display:block;margin-top:25px}}
+@media(max-width:720px){.w{padding:0 20px}.nav nav{gap:12px}.hero{padding-top:48px}.hero-grid,.about-grid,.hobbies{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.section{padding:65px 0}.job{grid-template-columns:36px 1fr;gap:12px}.job time{grid-column:2}.foot{display:block}.foot a{display:block;margin-top:25px}}
 </style></head><body>
-<header><div class="w nav"><a class="mark" href="#">JZ.</a><nav><a href="#experience">experience</a><a href="#work">work</a><a href="#about">outside of work</a></nav><a class="talk" href="https://cal.com/jamyandagva-zulkhuu-bdpp1c/15min" target="_blank" rel="noopener">Talk with me ↗</a></div></header>
+<header><div class="w nav"><a class="mark" href="#">JZ.</a><nav><a href="#experience">experience</a><a href="#work">work</a><a href="#about">hobbies</a></nav><a class="talk" href="https://cal.com/jamyandagva-zulkhuu-bdpp1c/15min" target="_blank" rel="noopener">Talk with me ↗</a></div></header>
 <main>
 <section class="hero"><div class="w">
 <span class="chip">BERKELEY, CALIFORNIA</span>
@@ -67,18 +70,11 @@ footer{padding:40px 0;background:var(--rose)}
 <div class="hero-grid">
 <div>
 <p class="hero-copy">A data science student and product builder who likes turning curious questions into things people can actually use.</p>
-<svg class="map-graphic" width="300" height="96" viewBox="0 0 300 96" xmlns="http://www.w3.org/2000/svg">
-<g opacity=".9" fill="var(--blue)">
-<ellipse cx="34" cy="30" rx="20" ry="12"/><ellipse cx="60" cy="52" rx="26" ry="15"/><ellipse cx="98" cy="24" rx="16" ry="10"/><ellipse cx="140" cy="46" rx="22" ry="13"/><ellipse cx="118" cy="70" rx="14" ry="8"/>
-</g>
-<g stroke="var(--ink)" stroke-width="2" fill="none"><circle cx="52" cy="46" r="3" fill="var(--gold)" stroke="none"/><circle cx="120" cy="34" r="3" fill="var(--gold)" stroke="none"/></g>
-<g transform="translate(205,10)"><rect x="10" y="30" width="10" height="46" fill="var(--gold)"/><rect x="6" y="20" width="18" height="10" fill="var(--ink)"/><polygon points="15,0 4,20 26,20" fill="var(--ink)"/><rect x="13" y="40" width="4" height="6" fill="var(--ink)"/><rect x="13" y="52" width="4" height="6" fill="var(--ink)"/></g>
-<g transform="translate(248,26)"><circle cx="18" cy="30" r="20" fill="var(--gold)" stroke="var(--ink)" stroke-width="2"/><circle cx="6" cy="14" r="7" fill="var(--gold)" stroke="var(--ink)" stroke-width="2"/><circle cx="30" cy="14" r="7" fill="var(--gold)" stroke="var(--ink)" stroke-width="2"/><circle cx="12" cy="30" r="2" fill="var(--ink)"/><circle cx="24" cy="30" r="2" fill="var(--ink)"/><ellipse cx="18" cy="38" rx="6" ry="4" fill="#fff" stroke="var(--ink)" stroke-width="1.5"/></g>
-</svg>
+<img class="hero-photo" src="campanile.jpg" alt="Campanile, UC Berkeley">
 </div>
 <aside class="hero-card"><small>ON CAMPUS</small>
-<svg width="54" height="54" viewBox="0 0 54 54"><circle cx="27" cy="27" r="26" fill="none" stroke="var(--gold)" stroke-width="2"/><rect x="21" y="16" width="12" height="26" fill="var(--gold)"/><polygon points="27,6 18,16 36,16" fill="var(--gold)"/></svg>
-<p>UC BERKELEY</p></aside>
+<img class="logo-photo" src="uc-berkeley-logo.jpg" alt="UC Berkeley logo">
+</aside>
 </div>
 </div></section>
 
@@ -86,25 +82,30 @@ footer{padding:40px 0;background:var(--rose)}
 <div class="k">Experience</div>
 <h2 class="title">Research, strategy,<br>and getting it done.</h2>
 <div class="journey">
-<article class="job"><time>MAY—SEP 2025</time><div><h3>Grand Spire Capital / Summer Analyst</h3><p>Researched 200+ technology companies, built financial models, and turned market signals into investment theses.</p></div></article>
-<article class="job"><time>JAN—MAY 2025</time><div><h3>UCSF Health / Digital Marketing & Strategy</h3><p>Led research with 136 student respondents and six focus groups to inform digital-health strategy.</p></div></article>
-<article class="job"><time>2024—NOW</time><div><h3>Mongolian Student Association / President</h3><p>Launched free college advising and tutoring support for students in Mongolia.</p></div></article>
+<article class="job"><img src="grand-spire-icon.jpg" alt=""><time>MAY—SEP 2025</time><div><h3>Grand Spire Capital / Summer Analyst</h3><p>Researched 200+ technology companies, built financial models, and turned market signals into investment theses.</p></div></article>
+<article class="job"><img src="ucsf-icon.jpg" alt=""><time>JAN—MAY 2025</time><div><h3>UCSF Health / Digital Marketing & Strategy</h3><p>Led research with 136 student respondents and six focus groups to inform digital-health strategy.</p></div></article>
+<article class="job"><img src="msa-icon.jpg" alt=""><time>2024—NOW</time><div><h3>Mongolian Student Association / President</h3><p>Launched free college advising and tutoring support for students in Mongolia.</p></div></article>
 </div></div></section>
 
 <section class="section reveal" id="work"><div class="w">
 <div class="k">Selected work</div>
 <h2 class="title">Things I’ve made<br>and care about.</h2>
 <div class="projects">
-<a class="project" href="/study"><span class="num">COMMUNITY</span><h3>Find<br>a Spot</h3><p>A student-powered map for discovering the best places to work around Berkeley.</p><b>VIEW PROJECT →</b></a>
-<a class="project" href="/music"><span class="num">CULTURE</span><h3>Campus<br>Calendar</h3><p>A local concert discovery platform that connects students with the city around them.</p><b>VIEW PROJECT →</b></a>
-<a class="project" href="#about"><span class="num">ME</span><h3>Personal<br>Website</h3><p>An evolving home for projects, notes, and the work in progress behind them.</p><b>YOU ARE HERE →</b></a>
+<a class="project" href="/study"><img src="find-a-spot.jpg" alt="Find a Spot"><div class="body"><span class="num">COMMUNITY</span><h3>Find a Spot</h3><p>A student-powered map for discovering the best places to work around Berkeley.</p><b>VIEW PROJECT →</b></div></a>
+<a class="project" href="/music"><img src="campus-calendar.jpg" alt="Campus Calendar"><div class="body"><span class="num">CULTURE</span><h3>Campus Calendar</h3><p>A local concert discovery platform that connects students with the city around them.</p><b>VIEW PROJECT →</b></div></a>
+<a class="project" href="#about"><img src="personal-site.jpg" alt="Personal Website"><div class="body"><span class="num">ME</span><h3>Personal Website</h3><p>An evolving home for projects, notes, and the work in progress behind them.</p><b>YOU ARE HERE →</b></div></a>
 </div></div></section>
 
 <section class="section about reveal" id="about"><div class="w about-grid">
-<div><div class="k">Outside of work</div>
-<h2 class="title">Optimistic about the internet, and the people on it.</h2>
-<p>I’m pursuing a BA in Data Science at UC Berkeley with an emphasis in Business Analytics. I’m interested in products that feel useful, human, and a little bit delightful.</p>
-<div class="tools"><span>Python</span><span>SQL</span><span>Figma</span><span>Research</span><span>React Native</span><span>Tableau</span></div></div>
+<div><div class="k">Hobbies</div>
+<h2 class="title">Outside of work.</h2>
+<div class="hobbies">
+<div class="hobby"><img src="hobby-basketball.jpg" alt=""><div><span>01</span><b>Basketball</b></div></div>
+<div class="hobby"><img src="hobby-photography.jpg" alt=""><div><span>02</span><b>Photography</b></div></div>
+<div class="hobby"><img src="hobby-cooking.jpg" alt=""><div><span>03</span><b>Cooking</b></div></div>
+<div class="hobby"><img src="hobby-hiking.jpg" alt=""><div><span>04</span><b>Hiking</b></div></div>
+</div>
+</div>
 <div class="facts">
 <div class="fact"><span>Based in</span><b>Berkeley, CA</b></div>
 <div class="fact"><span>Graduating</span><b>2028</b></div>
