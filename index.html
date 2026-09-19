@@ -30,7 +30,6 @@ h1{font:700 clamp(52px,9vw,120px)/.86 'Playfair Display',serif;letter-spacing:-.
 .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .project{border:1px solid var(--ink);text-decoration:none;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;background:#fff}
 .project:hover{transform:translateY(-6px);box-shadow:8px 8px 0 var(--blue)}
-.project img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--blue)}
 .project .body{padding:20px;border-top:3px solid var(--gold)}
 .project .num{font:12px 'DM Sans',sans-serif;color:var(--blue)}
 .project h3{font:700 26px/1 'Playfair Display',serif;margin:10px 0 10px;letter-spacing:-.03em}
@@ -49,7 +48,7 @@ h1{font:700 clamp(52px,9vw,120px)/.86 'Playfair Display',serif;letter-spacing:-.
 .hobbies{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .hobby{border:1px solid var(--gray);padding:16px 18px;display:flex;align-items:center;gap:14px;transition:border-color .25s,transform .25s}
 .hobby:hover{border-color:var(--gold);transform:translateX(4px)}
-.hobby img{width:40px;height:40px;object-fit:cover;border:1px solid var(--gold);flex:none;background:var(--blue)}
+.hobby-emoji{width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid var(--gold);flex:none;background:var(--blue)}
 .hobby span{font:12px 'DM Sans',sans-serif;color:var(--gold);display:block}
 .hobby b{font:600 18px 'Playfair Display',serif}
 .facts{border-top:1px solid var(--gray);margin-top:34px}
@@ -103,19 +102,19 @@ footer{padding:40px 0;background:var(--gold)}
 <div class="k"></div>
 <h2 class="title">Selected Projects</h2>
 <div class="projects">
-<a class="project stagger" href="/study"><img src="studyspot.jpg" alt="Find a Spot"><div class="body"><span class="num">COMMUNITY</span><h3>Find a Spot</h3><p>A student-powered map for discovering the best places to work around Berkeley.</p><b>VIEW PROJECT →</b></div></a>
-<a class="project stagger" href="/music"><img src="campus-calendar.jpg" alt="Campus Calendar"><div class="body"><span class="num">CULTURE</span><h3>Campus Calendar</h3><p>A local concert discovery platform that connects students with the city around them.</p><b>VIEW PROJECT →</b></div></a>
-<a class="project stagger" href="#about"><img src="personal-site.jpg" alt="Personal Website"><div class="body"><span class="num">ME</span><h3>Personal Website</h3><p>An evolving home for projects, notes, and the work in progress behind them.</p><b>YOU ARE HERE →</b></div></a>
+<a class="project stagger" href="/study"><div class="body"><span class="num">COMMUNITY</span><h3>Find a Spot</h3><p>A student-powered map for discovering the best places to work around Berkeley.</p><b>VIEW PROJECT →</b></div></a>
+<a class="project stagger" href="enaction.pdf" target="_blank" rel="noopener"><div class="body"><span class="num">CULTURE</span><h3>Enaction</h3><p>Details on this project are in the linked PDF.</p><b>VIEW PDF →</b></div></a>
+<a class="project stagger" href="#about"><div class="body"><span class="num">ME</span><h3>Personal Website</h3><p>An evolving home for projects, notes, and the work in progress behind them.</p><b>YOU ARE HERE →</b></div></a>
 </div></div></section>
 
 <section class="section about reveal" id="about"><div class="w about-grid">
 <div><div class="k"></div>
 <h2 class="title">Outside of work...</h2>
 <div class="hobbies">
-<div class="hobby stagger"><😭><div><span>01</span><b>Basketball</b></div></div>
-<div class="hobby stagger"><img src="hobby-photography.jpg" alt=""><div><span>02</span><b>Photography</b></div></div>
-<div class="hobby stagger"><img src="hobby-cooking.jpg" alt=""><div><span>03</span><b>Cooking</b></div></div>
-<div class="hobby stagger"><img src="hobby-hiking.jpg" alt=""><div><span>04</span><b>Hiking</b></div></div>
+<div class="hobby stagger"><div class="hobby-emoji">🏀</div><div><span>01</span><b>Basketball</b></div></div>
+<div class="hobby stagger"><div class="hobby-emoji">📷</div><div><span>02</span><b>Photography</b></div></div>
+<div class="hobby stagger"><div class="hobby-emoji">🍳</div><div><span>03</span><b>Cooking</b></div></div>
+<div class="hobby stagger"><div class="hobby-emoji">🥾</div><div><span>04</span><b>Hiking</b></div></div>
 </div>
 </div>
 </div></div></section>
