@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jamyandagva Zulkhuu</title><style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
-:root{--ink:#161616;--cream:#faf8f0;--blue:#003262;--gold:#fdb515}
+:root{--ink:#000000;--cream:#f2f2f2;--blue:#002676;--gold:#fdb515;--gray:#808080}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.45 'DM Sans',sans-serif;overflow-x:hidden}
@@ -8,11 +8,11 @@ a{color:inherit}
 .w{max-width:1180px;margin:auto;padding:0 28px}
 header{padding:22px 0}
 .nav{display:flex;align-items:center;justify-content:space-between}
-.mark{font:700 24px 'Playfair Display',serif;text-decoration:none}
-.nav nav{display:flex;gap:22px}
-.nav nav a{font:12px 'DM Sans',sans-serif;text-transform:uppercase;text-decoration:none}
+.mark{font:700 24px 'Playfair Display',serif;text-decoration:none;line-height:1}
+.nav nav{display:flex;align-items:center;gap:22px}
+.nav nav a{font:12px 'DM Sans',sans-serif;text-transform:uppercase;text-decoration:none;line-height:1}
 .nav nav a:hover{color:var(--blue)}
-.talk{background:var(--blue);color:#fff!important;padding:9px 16px;text-decoration:none;font:12px 'DM Sans',sans-serif;text-transform:uppercase}
+.talk{background:var(--blue);color:#fff!important;padding:9px 16px;text-decoration:none;font:12px 'DM Sans',sans-serif;text-transform:uppercase;line-height:1;display:inline-flex;align-items:center}
 .talk:hover{background:var(--ink)}
 .hero{padding:68px 0 36px}
 .hero-grid{display:grid;grid-template-columns:1fr 300px;gap:50px;align-items:start}
@@ -43,18 +43,18 @@ h1{font:700 clamp(52px,9vw,120px)/.86 'Playfair Display',serif;letter-spacing:-.
 .job h3{margin:0;font-size:20px}
 .job p{margin:7px 0 0;max-width:700px}
 .about{background:var(--ink);color:#fff}
-.about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:60px}
+.about-grid{max-width:700px}
 .about .k{color:var(--gold)}
 .about .title{font-size:50px}
 .hobbies{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.hobby{border:1px solid #444;padding:16px 18px;display:flex;align-items:center;gap:14px;transition:border-color .25s,transform .25s}
+.hobby{border:1px solid var(--gray);padding:16px 18px;display:flex;align-items:center;gap:14px;transition:border-color .25s,transform .25s}
 .hobby:hover{border-color:var(--gold);transform:translateX(4px)}
 .hobby img{width:40px;height:40px;object-fit:cover;border:1px solid var(--gold);flex:none;background:var(--blue)}
 .hobby span{font:12px 'DM Sans',sans-serif;color:var(--gold);display:block}
 .hobby b{font:600 18px 'Playfair Display',serif}
-.facts{border-top:1px solid #444;margin-top:34px}
-.fact{padding:13px 0;border-bottom:1px solid #444;display:flex;justify-content:space-between;font-size:13px}
-.fact span{color:#999}
+.facts{border-top:1px solid var(--gray);margin-top:34px}
+.fact{padding:13px 0;border-bottom:1px solid var(--gray);display:flex;justify-content:space-between;font-size:13px}
+.fact span{color:var(--gray)}
 .fact b{color:var(--gold)}
 footer{padding:40px 0;background:var(--gold)}
 .foot{display:flex;justify-content:space-between;align-items:end}
@@ -118,10 +118,6 @@ footer{padding:40px 0;background:var(--gold)}
 <div class="hobby stagger"><img src="hobby-hiking.jpg" alt=""><div><span>04</span><b>Hiking</b></div></div>
 </div>
 </div>
-<div class="facts">
-<div class="fact"><span>Based in</span><b>Berkeley, CA</b></div>
-<div class="fact"><span>Graduating</span><b>2028</b></div>
-<div class="fact"><span>LinkedIn</span><a href="https://linkedin.com/in/zulkhuu">/in/zulkhuu</a></div>
 </div></div></section>
 </main>
 <footer><div class="w foot"><h2>Let’s make<br>something good.</h2><a href="mailto:jamyandagvazulkhuu@gmail.com">jamyandagvazulkhuu@gmail.com ↗</a></div></footer>
