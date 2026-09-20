@@ -1,145 +1,906 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jamyandagva Zulkhuu</title><style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fredoka:wght@500;600;700&display=swap');
-:root{--ink:#2b2820;--cream:#f6f2e8;--card:#ffffff;--sage:#5c6b4a;--line:#e1dbc9;--babyblue:#9cc9e8;--pastelblue:#e3f0fa;--pastelpink:#fbe6ec}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.5 'DM Sans',sans-serif;overflow-x:hidden}
-a{color:inherit}
-.w{max-width:1180px;margin:auto;padding:0 28px}
-header{padding:22px 0}
-.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
-.mark{font:600 26px 'Fredoka',sans-serif;text-decoration:none;line-height:1;justify-self:start}
-.nav nav{display:flex;align-items:center;justify-self:center;gap:10px}
-.nav nav a{font:13px 'DM Sans',sans-serif;text-decoration:none;line-height:1;padding:10px 18px;border-radius:99px;border:1px solid var(--line);background:var(--card)}
-.nav nav a:hover{border-color:var(--ink)}
-.talk{background:var(--ink);color:var(--cream)!important;padding:11px 20px;border-radius:99px;text-decoration:none;font:13px 'DM Sans',sans-serif;line-height:1;display:inline-flex;align-items:center;justify-self:end}
-.talk:hover{background:var(--sage)}
-.hero{padding:56px 0 40px;position:relative}
-.hero-grid{max-width:800px}
-.chip{font:13px 'DM Sans',sans-serif;background:#003262;color:#fdb515;border:2px solid #fdb515;border-radius:99px;padding:8px 14px;display:inline-block;text-decoration:none;transition:background .2s,color .2s}
-.chip:hover{background:#fdb515;color:#003262}
-.hi{font:600 24px 'Fredoka',sans-serif;margin:28px 0 4px}
-.name-wrap{position:relative}
-h1{position:relative;z-index:1;font:600 clamp(48px,8.5vw,104px)/.95 'Fredoka',sans-serif;letter-spacing:-.02em;margin:0 0 28px}
-.hero-copy{font-size:19px;max-width:560px;margin:0 0 26px;color:#55503f}
-.tags{display:flex;flex-wrap:wrap;gap:10px}
-.tag{font:13px 'DM Sans',sans-serif;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:7px 14px;display:inline-block;color:var(--sage)}
-.tags.reveal .tag{transform:scale(.3) translateY(30px);transition:opacity .45s ease,transform .55s cubic-bezier(.36,1.85,.55,1)}
-.tags.reveal.in .tag{opacity:1;transform:scale(1) translateY(0)}
-.tags.reveal .tag:nth-child(2){transition-delay:.1s}
-.tags.reveal .tag:nth-child(3){transition-delay:.2s}
-.section{padding:88px 0;border-top:1px solid var(--line)}
-.title{font:600 40px/1 'Fredoka',sans-serif;margin:0 0 38px}
-.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.project{position:relative;border:1px solid var(--line);border-radius:20px;text-decoration:none;transition:transform .25s,border-color .25s,background .25s;display:flex;flex-direction:column;background:var(--card);overflow:hidden}
-.project:hover{transform:translateY(-4px)}
-.project:nth-child(odd):hover{border-color:var(--babyblue);background:var(--pastelblue)}
-.project:nth-child(even):hover{border-color:#e9a8bb;background:var(--pastelpink)}
-.project .body{padding:24px}
-.project .num{font:13px 'DM Sans',sans-serif;color:var(--sage)}
-.project h3{font:600 24px 'Fredoka',sans-serif;margin:8px 0 10px}
-.project p{margin:0;font-size:14px;color:#55503f}
-.project b{display:block;margin-top:18px;font:13px 'DM Sans',sans-serif;color:var(--sage)}
-.project-icon{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:99px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.34,1.56,.64,1),background .25s,border-color .25s}
-.project-icon svg{width:14px;height:14px;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
-.project:hover .project-icon{background:var(--sage);border-color:var(--sage);transform:rotate(45deg) scale(1.1)}
-.project:hover .project-icon svg{stroke:var(--cream)}
-.journey{}
-.job{display:grid;grid-template-columns:130px 1fr;gap:20px;align-items:start;padding:22px 0 22px 16px;margin-left:-16px;border-bottom:1px solid var(--line);border-radius:12px;transition:background .25s}
-.job:nth-child(odd):hover{background:var(--pastelblue)}
-.job:nth-child(even):hover{background:var(--pastelpink)}
-.job:first-child{padding-top:0}
-.job time{font:13px 'DM Sans',sans-serif;color:var(--babyblue)}
-.job h3{margin:0;font-size:19px;font-weight:600}
-.job p{margin:7px 0 0;max-width:700px;color:#55503f}
-.about{background:var(--card);color:var(--ink);border-top:1px solid var(--line)}
-.about-grid{max-width:700px}
-.about .title{font-size:40px}
-.hobbies{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.hobby{border:1px solid var(--line);border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:14px;transition:border-color .25s,transform .25s,background .25s;background:var(--cream)}
-.hobby:nth-child(odd):hover{border-color:var(--babyblue);background:var(--pastelblue);transform:translateX(4px)}
-.hobby:nth-child(even):hover{border-color:#e9a8bb;background:var(--pastelpink);transform:translateX(4px)}
-.hobby-emoji{width:44px;height:44px;border-radius:99px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:20px;flex:none;transition:transform .4s cubic-bezier(.34,1.56,.64,1),background .25s}
-.hobby:nth-child(odd):hover .hobby-emoji{transform:rotate(-12deg) scale(1.12);background:var(--babyblue)}
-.hobby:nth-child(even):hover .hobby-emoji{transform:rotate(-12deg) scale(1.12);background:#e9a8bb}
-.hobby b{font:600 18px 'Fredoka',sans-serif;display:block}
-footer{padding:44px 0;background:var(--card);border-top:1px solid var(--line)}
-.foot{display:flex;justify-content:space-between;align-items:end}
-.foot h2{font:600 48px/.95 'Fredoka',sans-serif;margin:0}
-.foot a{text-decoration:none;border-bottom:1px solid var(--ink)}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jamyandagva Zulkhuu</title>
 
-.load-in{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
-.load-in.in{opacity:1;transform:none}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-.stagger{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in .stagger{opacity:1;transform:none}
-.stagger:nth-child(1){transition-delay:.05s}
-.stagger:nth-child(2){transition-delay:.16s}
-.stagger:nth-child(3){transition-delay:.27s}
-.stagger:nth-child(4){transition-delay:.38s}
-.stagger:nth-child(5){transition-delay:.49s}
-.stagger:nth-child(6){transition-delay:.6s}
-@media(prefers-reduced-motion:reduce){.reveal,.load-in,.stagger{opacity:1;transform:none;transition:none}}
-@media(max-width:720px){.w{padding:0 20px}.nav{grid-template-columns:1fr auto}.nav nav{display:none}.hero{padding-top:44px}.about-grid,.hobbies{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.section{padding:60px 0}.job{grid-template-columns:1fr;gap:6px}.foot{display:block}.foot a{display:block;margin-top:22px}.tags{gap:8px}.tag{padding:6px 12px;font-size:12px}}
-</style></head><body>
-<header><div class="w nav"><a class="mark" href="#">JZ*</a><nav><a href="#experience">experience</a><a href="#work">projects</a><a href="#about">hobbies</a></nav><a class="talk" href="https://cal.com/jamyandagva-zulkhuu-bdpp1c/15min" target="_blank" rel="noopener">Talk with me ↗</a></div></header>
-<main>
-<section class="hero"><div class="w">
-<div class="hero-grid">
-<div>
-<a class="chip load-in" href="https://www.google.com/maps/place/Berkeley,+CA" target="_blank" rel="noopener">Berkeley, California</a>
-<p class="hi load-in">Hi, I'm</p>
-<div class="name-wrap">
-<h1 class="load-in">Jamka Zulkhuu.</h1>
-</div>
-<p class="hero-copy load-in">Currently studying Business Analytics at UC Berkeley and building useful products. I love talking, collaborating and shipping with diverse teams.</p>
-<div class="tags reveal">
-<span class="tag">Machine Learning</span>
-<span class="tag">Product</span>
-<span class="tag">AI</span>
-</div>
-</div>
-</div>
-</div></section>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fredoka:wght@500;600;700&family=VT323&display=swap');
 
-<section class="section reveal" id="experience"><div class="w">
-<h2 class="title">Experience</h2>
-<div class="journey">
-  <article class="job stagger"><time>Sept-Dec 2025</time><div><h3>Economics Research / Research Assistant</h3><p>Assisted researchers on a paper about the economic effects of teaching chess.</p></div></article>
-<article class="job stagger"><time>May-Sept 2025</time><div><h3>Grand Spire Capital / Summer Analyst</h3><p>Researched 200+ technology companies, built financial models, and turned market signals into investment theses.</p></div></article>
-<article class="job stagger"><time>Jan-May 2025</time><div><h3>UCSF Health / Digital Marketing & Strategy</h3><p>Led research with 136 student respondents and six focus groups to inform digital-health strategy.</p></div></article>
-<article class="job stagger"><time>Jan-May 2025</time><div><h3>Office of the CFO / Intern</h3><p>Managed UC Berkeley's $1.8 million student portfolio and budget alongside Chief Financial Officer.</p></div></article>
-<article class="job stagger"><time>June-Aug 2024</time><div><h3>Stanford PIPS / Intern</h3><p>Researched the effects RFX3 gene in congenital hyperinsulinism (infants with diabetes).</p></div></article>
-<article class="job stagger"><time>Aug 2024 - Present</time><div><h3>Mongolian Student Association / President</h3><p>Launched free college advising and tutoring support for students in Mongolia.</p></div></article>
-</div></div></section>
+    :root{
+      --ink:#34231E;
+      --lightbrown:#89594B;
+      --cream:#F5EEE9;
+      --card:#FFF9F5;
+      --sage:#6F4438;
+      --line:#D9C2B8;
+      --accent:#9C6C5C;
+      --hover-one:#F0DDD4;
+      --hover-two:#EBCFC3;
+      --hover-accent:#D7B2A3;
+    }
 
-<section class="section reveal" id="work"><div class="w">
-<h2 class="title">Selected Projects</h2>
-<div class="projects">
-<a class="project stagger" href="/study"><div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2b2820" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="body"><span class="num">Community</span><h3>Find a Spot</h3><p>A student-powered map for discovering the best places to work around Berkeley.</p><b>View project</b></div></a>
-<a class="project stagger" href="enaction.pdf" target="_blank" rel="noopener"><div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2b2820" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="body"><span class="num">Culture</span><h3>Enaction</h3><p>Details on this project are in the linked PDF.</p><b>View PDF</b></div></a>
-<a class="project stagger" href="#about"><div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2b2820" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="body"><span class="num">Me</span><h3>Personal Website</h3><p>An evolving home for projects, notes, and the work in progress behind them.</p><b>You are here</b></div></a>
-</div></div></section>
+    *{
+      box-sizing:border-box;
+    }
 
-<section class="section about reveal" id="about"><div class="w about-grid">
-<div>
-<h2 class="title">Hobbies.</h2>
-<div class="hobbies">
-<div class="hobby stagger"><div class="hobby-emoji">🏀</div><b>Basketball</b></div>
-<div class="hobby stagger"><div class="hobby-emoji">📷</div><b>Photography</b></div>
-<div class="hobby stagger"><div class="hobby-emoji">🍳</div><b>Cooking</b></div>
-<div class="hobby stagger"><div class="hobby-emoji">🥾</div><b>Hiking</b></div>
-</div>
-</div>
-</div></section>
-</main>
-<footer><div class="w foot"><h2>Let's make<br>something good.</h2><a href="mailto:jamyandagvaz@gmail.com">jamyandagvaz@gmail.com ↗</a></div></footer>
+    html{
+      scroll-behavior:smooth;
+    }
 
-<script>
-document.querySelectorAll('.load-in').forEach((el,i)=>{setTimeout(()=>el.classList.add('in'),120+i*110)});
-const els=document.querySelectorAll('.reveal');
-const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
-els.forEach(el=>io.observe(el));
-</script>
-</body></html>
+    body{
+      margin:0;
+      background:var(--cream);
+      color:var(--ink);
+      font:16px/1.5 'DM Sans',sans-serif;
+      overflow-x:hidden;
+    }
+
+    a{
+      color:inherit;
+    }
+
+    .w{
+      max-width:1180px;
+      margin:auto;
+      padding:0 28px;
+    }
+
+    header{
+      padding:22px 0;
+    }
+
+    .nav{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+    }
+
+    .mark{
+      font:600 26px 'Fredoka',sans-serif;
+      text-decoration:none;
+      line-height:1;
+      justify-self:start;
+      color:var(--lightbrown);
+    }
+
+    .nav nav{
+      display:flex;
+      align-items:center;
+      justify-self:center;
+      gap:10px;
+    }
+
+    .nav nav a{
+      font:13px 'DM Sans',sans-serif;
+      text-decoration:none;
+      line-height:1;
+      padding:10px 18px;
+      border-radius:99px;
+      border:1px solid var(--line);
+      background:var(--card);
+      color:var(--ink);
+      transition:border-color .2s,background .2s,color .2s;
+    }
+
+    .nav nav a:hover{
+      border-color:var(--lightbrown);
+      background:var(--hover-one);
+      color:var(--lightbrown);
+    }
+
+    .talk{
+      background:var(--ink);
+      color:var(--cream)!important;
+      padding:11px 20px;
+      border-radius:99px;
+      text-decoration:none;
+      font:13px 'DM Sans',sans-serif;
+      line-height:1;
+      display:inline-flex;
+      align-items:center;
+      justify-self:end;
+      transition:background .2s,transform .2s;
+    }
+
+    .talk:hover{
+      background:var(--lightbrown);
+      transform:translateY(-2px);
+    }
+
+    .hero{
+      padding:56px 0 40px;
+      position:relative;
+    }
+
+    .hero-grid{
+      max-width:800px;
+    }
+
+    .sf-clock-wrap{
+      position:absolute;
+      top:56px;
+      right:28px;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:2px;
+    }
+
+    .sf-time{
+      font:400 40px 'VT323',monospace;
+      letter-spacing:.04em;
+      color:var(--ink);
+      line-height:1;
+    }
+
+    .sf-time .blink{
+      animation:sfblink 1s steps(1) infinite;
+    }
+
+    @keyframes sfblink{
+      50%{
+        opacity:0;
+      }
+    }
+
+    .sf-clock-label{
+      font:11px 'DM Sans',sans-serif;
+      color:var(--sage);
+      white-space:nowrap;
+    }
+
+    .chip{
+      font:13px 'DM Sans',sans-serif;
+      background:var(--lightbrown);
+      color:var(--card);
+      border:2px solid var(--lightbrown);
+      border-radius:99px;
+      padding:8px 14px;
+      display:inline-block;
+      text-decoration:none;
+      transition:background .2s,color .2s,border-color .2s;
+    }
+
+    .chip:hover{
+      background:var(--hover-accent);
+      color:var(--ink);
+      border-color:var(--hover-accent);
+    }
+
+    .hi{
+      font:600 24px 'Fredoka',sans-serif;
+      margin:28px 0 4px;
+      color:var(--lightbrown);
+    }
+
+    .name-wrap{
+      position:relative;
+    }
+
+    h1{
+      position:relative;
+      z-index:1;
+      font:600 clamp(48px,8.5vw,104px)/.95 'Fredoka',sans-serif;
+      letter-spacing:-.02em;
+      margin:0 0 28px;
+      color:var(--lightbrown);
+    }
+
+    .hero-copy{
+      font-size:19px;
+      max-width:560px;
+      margin:0 0 26px;
+      color:#60453C;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tag{
+      font:13px 'DM Sans',sans-serif;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:99px;
+      padding:7px 14px;
+      display:inline-block;
+      color:var(--sage);
+    }
+
+    .tags.reveal .tag{
+      transform:scale(.3) translateY(30px);
+      transition:opacity .45s ease,transform .55s cubic-bezier(.36,1.85,.55,1);
+    }
+
+    .tags.reveal.in .tag{
+      opacity:1;
+      transform:scale(1) translateY(0);
+    }
+
+    .tags.reveal .tag:nth-child(2){
+      transition-delay:.1s;
+    }
+
+    .tags.reveal .tag:nth-child(3){
+      transition-delay:.2s;
+    }
+
+    .section{
+      padding:88px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .title{
+      font:600 40px/1 'Fredoka',sans-serif;
+      margin:0 0 38px;
+      color:var(--ink);
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .project{
+      position:relative;
+      border:1px solid var(--line);
+      border-radius:20px;
+      text-decoration:none;
+      transition:transform .25s,border-color .25s,background .25s;
+      display:flex;
+      flex-direction:column;
+      background:var(--card);
+      overflow:hidden;
+    }
+
+    .project:hover{
+      transform:translateY(-4px);
+    }
+
+    .project:nth-child(odd):hover{
+      border-color:var(--accent);
+      background:var(--hover-one);
+    }
+
+    .project:nth-child(even):hover{
+      border-color:var(--accent);
+      background:var(--hover-two);
+    }
+
+    .project .body{
+      padding:24px;
+    }
+
+    .project .num{
+      font:13px 'DM Sans',sans-serif;
+      color:var(--sage);
+    }
+
+    .project h3{
+      font:600 24px 'Fredoka',sans-serif;
+      margin:8px 0 10px;
+      color:var(--ink);
+    }
+
+    .project p{
+      margin:0;
+      font-size:14px;
+      color:#60453C;
+    }
+
+    .project b{
+      display:block;
+      margin-top:18px;
+      font:13px 'DM Sans',sans-serif;
+      color:var(--sage);
+    }
+
+    .project-icon{
+      position:absolute;
+      top:16px;
+      right:16px;
+      width:34px;
+      height:34px;
+      border-radius:99px;
+      border:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--ink);
+      transition:transform .35s cubic-bezier(.34,1.56,.64,1),background .25s,border-color .25s,color .25s;
+    }
+
+    .project-icon svg{
+      width:14px;
+      height:14px;
+      transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    .project:hover .project-icon{
+      background:var(--sage);
+      border-color:var(--sage);
+      color:var(--cream);
+      transform:rotate(45deg) scale(1.1);
+    }
+
+    .journey{
+      max-width:900px;
+    }
+
+    .job{
+      display:grid;
+      grid-template-columns:130px 1fr;
+      gap:20px;
+      align-items:start;
+      padding:22px 0 22px 16px;
+      margin-left:-16px;
+      border-bottom:1px solid var(--line);
+      border-radius:12px;
+      transition:background .25s;
+    }
+
+    .job:nth-child(odd):hover{
+      background:var(--hover-one);
+    }
+
+    .job:nth-child(even):hover{
+      background:var(--hover-two);
+    }
+
+    .job:first-child{
+      padding-top:0;
+    }
+
+    .job time{
+      font:13px 'DM Sans',sans-serif;
+      color:var(--accent);
+    }
+
+    .job h3{
+      margin:0;
+      font-size:19px;
+      font-weight:600;
+      color:var(--ink);
+    }
+
+    .job p{
+      margin:7px 0 0;
+      max-width:700px;
+      color:#60453C;
+    }
+
+    .about{
+      background:var(--card);
+      color:var(--ink);
+      border-top:1px solid var(--line);
+    }
+
+    .about-grid{
+      max-width:700px;
+    }
+
+    .about .title{
+      font-size:40px;
+    }
+
+    .hobbies{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .hobby{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 18px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      transition:border-color .25s,transform .25s,background .25s;
+      background:var(--cream);
+    }
+
+    .hobby:nth-child(odd):hover{
+      border-color:var(--accent);
+      background:var(--hover-one);
+      transform:translateX(4px);
+    }
+
+    .hobby:nth-child(even):hover{
+      border-color:var(--accent);
+      background:var(--hover-two);
+      transform:translateX(4px);
+    }
+
+    .hobby-emoji{
+      width:44px;
+      height:44px;
+      border-radius:99px;
+      background:var(--card);
+      border:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      flex:none;
+      transition:transform .4s cubic-bezier(.34,1.56,.64,1),background .25s;
+    }
+
+    .hobby:nth-child(odd):hover .hobby-emoji,
+    .hobby:nth-child(even):hover .hobby-emoji{
+      transform:rotate(-12deg) scale(1.12);
+      background:var(--hover-accent);
+    }
+
+    .hobby b{
+      font:600 18px 'Fredoka',sans-serif;
+      display:block;
+      color:var(--ink);
+    }
+
+    footer{
+      padding:44px 0;
+      background:var(--card);
+      border-top:1px solid var(--line);
+    }
+
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+    }
+
+    .foot h2{
+      font:600 48px/.95 'Fredoka',sans-serif;
+      margin:0;
+      color:var(--lightbrown);
+    }
+
+    .foot a{
+      text-decoration:none;
+      border-bottom:1px solid var(--ink);
+      color:var(--ink);
+      transition:color .2s,border-color .2s;
+    }
+
+    .foot a:hover{
+      color:var(--lightbrown);
+      border-color:var(--lightbrown);
+    }
+
+    .load-in{
+      opacity:0;
+      transform:translateY(16px);
+      transition:opacity .7s ease,transform .7s ease;
+    }
+
+    .load-in.in{
+      opacity:1;
+      transform:none;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(28px);
+      transition:opacity .7s ease,transform .7s ease;
+    }
+
+    .reveal.in{
+      opacity:1;
+      transform:none;
+    }
+
+    .stagger{
+      opacity:0;
+      transform:translateY(20px);
+      transition:opacity .6s ease,transform .6s ease;
+    }
+
+    .reveal.in .stagger{
+      opacity:1;
+      transform:none;
+    }
+
+    .stagger:nth-child(1){
+      transition-delay:.05s;
+    }
+
+    .stagger:nth-child(2){
+      transition-delay:.16s;
+    }
+
+    .stagger:nth-child(3){
+      transition-delay:.27s;
+    }
+
+    .stagger:nth-child(4){
+      transition-delay:.38s;
+    }
+
+    .stagger:nth-child(5){
+      transition-delay:.49s;
+    }
+
+    .stagger:nth-child(6){
+      transition-delay:.6s;
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      .reveal,
+      .load-in,
+      .stagger{
+        opacity:1;
+        transform:none;
+        transition:none;
+      }
+    }
+
+    @media(max-width:720px){
+      .w{
+        padding:0 20px;
+      }
+
+      .nav{
+        grid-template-columns:1fr auto;
+      }
+
+      .nav nav{
+        display:none;
+      }
+
+      .hero{
+        padding-top:44px;
+      }
+
+      .about-grid,
+      .hobbies,
+      .projects{
+        grid-template-columns:1fr;
+      }
+
+      .section{
+        padding:60px 0;
+      }
+
+      .job{
+        grid-template-columns:1fr;
+        gap:6px;
+      }
+
+      .foot{
+        display:block;
+      }
+
+      .foot a{
+        display:block;
+        margin-top:22px;
+      }
+
+      .tags{
+        gap:8px;
+      }
+
+      .tag{
+        padding:6px 12px;
+        font-size:12px;
+      }
+
+      .sf-clock-wrap{
+        position:static;
+        flex-direction:row;
+        justify-content:flex-start;
+        margin-bottom:20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="w nav">
+      <a class="mark" href="#">JZ*</a>
+
+      <nav>
+        <a href="#experience">experience</a>
+        <a href="#work">projects</a>
+        <a href="#about">hobbies</a>
+      </nav>
+
+      <a
+        class="talk"
+        href="https://cal.com/jamyandagva-zulkhuu-bdpp1c/15min"
+        target="_blank"
+        rel="noopener"
+      >
+        Talk with me ↗
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="w">
+        <div class="sf-clock-wrap">
+          <span class="sf-time" id="sfTime">--:--</span>
+          <span class="sf-clock-label">San Francisco</span>
+        </div>
+
+        <div class="hero-grid">
+          <div>
+            <a
+              class="chip load-in"
+              href="https://www.google.com/maps/place/Berkeley,+CA"
+              target="_blank"
+              rel="noopener"
+            >
+              Berkeley, California
+            </a>
+
+            <p class="hi load-in">Hi, I'm</p>
+
+            <div class="name-wrap">
+              <h1 class="load-in">Jamka Zulkhuu.</h1>
+            </div>
+
+            <p class="hero-copy load-in">
+              Currently studying Business Analytics at UC Berkeley and building
+              useful products. I love talking, collaborating and shipping with
+              diverse teams.
+            </p>
+
+            <div class="tags reveal">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Product</span>
+              <span class="tag">AI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="experience">
+      <div class="w">
+        <h2 class="title">Experience</h2>
+
+        <div class="journey">
+          <article class="job stagger">
+            <time>Sept–Dec 2025</time>
+            <div>
+              <h3>Economics Research / Research Assistant</h3>
+              <p>
+                Assisted researchers on a paper about the economic effects of
+                teaching chess.
+              </p>
+            </div>
+          </article>
+
+          <article class="job stagger">
+            <time>May–Sept 2025</time>
+            <div>
+              <h3>Grand Spire Capital / Summer Analyst</h3>
+              <p>
+                Researched 200+ technology companies, built financial models,
+                and turned market signals into investment theses.
+              </p>
+            </div>
+          </article>
+
+          <article class="job stagger">
+            <time>Jan–May 2025</time>
+            <div>
+              <h3>UCSF Health / Digital Marketing &amp; Strategy</h3>
+              <p>
+                Led research with 136 student respondents and six focus groups
+                to inform digital-health strategy.
+              </p>
+            </div>
+          </article>
+
+          <article class="job stagger">
+            <time>Jan–May 2025</time>
+            <div>
+              <h3>Office of the CFO / Intern</h3>
+              <p>
+                Managed UC Berkeley's $1.8 million student portfolio and budget
+                alongside Chief Financial Officer.
+              </p>
+            </div>
+          </article>
+
+          <article class="job stagger">
+            <time>June–Aug 2024</time>
+            <div>
+              <h3>Stanford PIPS / Intern</h3>
+              <p>
+                Researched the effects of the RFX3 gene in congenital
+                hyperinsulinism.
+              </p>
+            </div>
+          </article>
+
+          <article class="job stagger">
+            <time>Aug 2024 – Present</time>
+            <div>
+              <h3>Mongolian Student Association / President</h3>
+              <p>
+                Launched free college advising and tutoring support for students
+                in Mongolia.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="work">
+      <div class="w">
+        <h2 class="title">Selected Projects</h2>
+
+        <div class="projects">
+          <a class="project stagger" href="/study">
+            <div class="project-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </div>
+
+            <div class="body">
+              <span class="num">Community</span>
+              <h3>Find a Spot</h3>
+              <p>
+                A student-powered map for discovering the best places to work
+                around Berkeley.
+              </p>
+              <b>View project</b>
+            </div>
+          </a>
+
+          <a
+            class="project stagger"
+            href="enaction.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </div>
+
+            <div class="body">
+              <span class="num">Culture</span>
+              <h3>Enaction</h3>
+              <p>Details on this project are in the linked PDF.</p>
+              <b>View PDF</b>
+            </div>
+          </a>
+
+          <a class="project stagger" href="#about">
+            <div class="project-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </div>
+
+            <div class="body">
+              <span class="num">Me</span>
+              <h3>Personal Website</h3>
+              <p>
+                An evolving home for projects, notes, and the work in progress
+                behind them.
+              </p>
+              <b>You are here</b>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about reveal" id="about">
+      <div class="w about-grid">
+        <div>
+          <h2 class="title">Hobbies.</h2>
+
+          <div class="hobbies">
+            <div class="hobby stagger">
+              <div class="hobby-emoji">🏀</div>
+              <b>Basketball</b>
+            </div>
+
+            <div class="hobby stagger">
+              <div class="hobby-emoji">📷</div>
+              <b>Photography</b>
+            </div>
+
+            <div class="hobby stagger">
+              <div class="hobby-emoji">🍳</div>
+              <b>Cooking</b>
+            </div>
+
+            <div class="hobby stagger">
+              <div class="hobby-emoji">🥾</div>
+              <b>Hiking</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="w foot">
+      <h2>Let's make<br>something good.</h2>
+
+      <a href="mailto:jamyandagvaz@gmail.com">
+        jamyandagvaz@gmail.com ↗
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.load-in').forEach((el, i) => {
+      setTimeout(() => el.classList.add('in'), 120 + i * 110);
+    });
+
+    const els = document.querySelectorAll('.reveal');
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    els.forEach((el) => io.observe(el));
+
+    function updateSFClock() {
+      const now = new Date();
+
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Los_Angeles',
+        hour12: true,
+        hour: 'numeric',
+        minute: '2-digit'
+      }).formatToParts(now);
+
+      const hour = parts.find((part) => part.type === 'hour').value;
+      const minute = parts.find((part) => part.type === 'minute').value;
+      const dayPeriod = parts.find((part) => part.type === 'dayPeriod').value;
+
+      document.getElementById('sfTime').innerHTML =
+        `${hour}<span class="blink">:</span>${minute} ${dayPeriod}`;
+    }
+
+    updateSFClock();
+    setInterval(updateSFClock, 1000);
+  </script>
+</body>
+</html>
