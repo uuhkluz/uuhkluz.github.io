@@ -10,14 +10,14 @@
 
     :root{
       --ink:#34231E;
-      --lightbrown:#89594B;
-      --cream:#F5EEE9;
-      --card:#FFF9F5;
-      --sage:#6F4438;
+      --primary-brown:#89594B;
+      --background:#F5EEE9;
       --line:#D9C2B8;
-      --accent:#9C6C5C;
-      --hover-one:#F0DDD4;
-      --hover-two:#EBCFC3;
+      --secondary-brown:#6F4438;
+      --muted-brown:#60453C;
+      --accent-brown:#9C6C5C;
+      --hover-one:#EBD9D1;
+      --hover-two:#E4CEC4;
       --hover-accent:#D7B2A3;
     }
 
@@ -27,11 +27,12 @@
 
     html{
       scroll-behavior:smooth;
+      background:var(--background);
     }
 
     body{
       margin:0;
-      background:var(--cream);
+      background:var(--background);
       color:var(--ink);
       font:16px/1.5 'DM Sans',sans-serif;
       overflow-x:hidden;
@@ -49,6 +50,7 @@
 
     header{
       padding:22px 0;
+      background:var(--background);
     }
 
     .nav{
@@ -62,7 +64,7 @@
       text-decoration:none;
       line-height:1;
       justify-self:start;
-      color:var(--lightbrown);
+      color:var(--primary-brown);
     }
 
     .nav nav{
@@ -79,20 +81,20 @@
       padding:10px 18px;
       border-radius:99px;
       border:1px solid var(--line);
-      background:var(--card);
+      background:var(--background);
       color:var(--ink);
       transition:border-color .2s,background .2s,color .2s;
     }
 
     .nav nav a:hover{
-      border-color:var(--lightbrown);
+      border-color:var(--primary-brown);
       background:var(--hover-one);
-      color:var(--lightbrown);
+      color:var(--primary-brown);
     }
 
     .talk{
       background:var(--ink);
-      color:var(--cream)!important;
+      color:var(--background)!important;
       padding:11px 20px;
       border-radius:99px;
       text-decoration:none;
@@ -105,13 +107,14 @@
     }
 
     .talk:hover{
-      background:var(--lightbrown);
+      background:var(--primary-brown);
       transform:translateY(-2px);
     }
 
     .hero{
       padding:56px 0 40px;
       position:relative;
+      background:var(--background);
     }
 
     .hero-grid{
@@ -147,15 +150,15 @@
 
     .sf-clock-label{
       font:11px 'DM Sans',sans-serif;
-      color:var(--sage);
+      color:var(--secondary-brown);
       white-space:nowrap;
     }
 
     .chip{
       font:13px 'DM Sans',sans-serif;
-      background:var(--lightbrown);
-      color:var(--card);
-      border:2px solid var(--lightbrown);
+      background:var(--primary-brown);
+      color:var(--background);
+      border:2px solid var(--primary-brown);
       border-radius:99px;
       padding:8px 14px;
       display:inline-block;
@@ -172,7 +175,7 @@
     .hi{
       font:600 24px 'Fredoka',sans-serif;
       margin:28px 0 4px;
-      color:var(--lightbrown);
+      color:var(--primary-brown);
     }
 
     .name-wrap{
@@ -185,14 +188,14 @@
       font:600 clamp(48px,8.5vw,104px)/.95 'Fredoka',sans-serif;
       letter-spacing:-.02em;
       margin:0 0 28px;
-      color:var(--lightbrown);
+      color:var(--primary-brown);
     }
 
     .hero-copy{
       font-size:19px;
       max-width:560px;
       margin:0 0 26px;
-      color:#60453C;
+      color:var(--muted-brown);
     }
 
     .tags{
@@ -203,12 +206,12 @@
 
     .tag{
       font:13px 'DM Sans',sans-serif;
-      background:var(--card);
+      background:var(--background);
       border:1px solid var(--line);
       border-radius:99px;
       padding:7px 14px;
       display:inline-block;
-      color:var(--sage);
+      color:var(--secondary-brown);
     }
 
     .tags.reveal .tag{
@@ -232,6 +235,7 @@
     .section{
       padding:88px 0;
       border-top:1px solid var(--line);
+      background:var(--background);
     }
 
     .title{
@@ -248,14 +252,15 @@
 
     .project{
       position:relative;
-      border:1px solid var(--line);
-      border-radius:20px;
-      text-decoration:none;
-      transition:transform .25s,border-color .25s,background .25s;
       display:flex;
       flex-direction:column;
-      background:var(--card);
       overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:var(--background);
+      color:var(--ink);
+      text-decoration:none;
+      transition:transform .25s,border-color .25s,background .25s;
     }
 
     .project:hover{
@@ -263,12 +268,12 @@
     }
 
     .project:nth-child(odd):hover{
-      border-color:var(--accent);
+      border-color:var(--accent-brown);
       background:var(--hover-one);
     }
 
     .project:nth-child(even):hover{
-      border-color:var(--accent);
+      border-color:var(--accent-brown);
       background:var(--hover-two);
     }
 
@@ -278,7 +283,7 @@
 
     .project .num{
       font:13px 'DM Sans',sans-serif;
-      color:var(--sage);
+      color:var(--secondary-brown);
     }
 
     .project h3{
@@ -290,14 +295,14 @@
     .project p{
       margin:0;
       font-size:14px;
-      color:#60453C;
+      color:var(--muted-brown);
     }
 
     .project b{
       display:block;
       margin-top:18px;
       font:13px 'DM Sans',sans-serif;
-      color:var(--sage);
+      color:var(--secondary-brown);
     }
 
     .project-icon{
@@ -306,13 +311,18 @@
       right:16px;
       width:34px;
       height:34px;
-      border-radius:99px;
       border:1px solid var(--line);
+      border-radius:99px;
       display:flex;
       align-items:center;
       justify-content:center;
+      background:var(--background);
       color:var(--ink);
-      transition:transform .35s cubic-bezier(.34,1.56,.64,1),background .25s,border-color .25s,color .25s;
+      transition:
+        transform .35s cubic-bezier(.34,1.56,.64,1),
+        background .25s,
+        border-color .25s,
+        color .25s;
     }
 
     .project-icon svg{
@@ -322,9 +332,9 @@
     }
 
     .project:hover .project-icon{
-      background:var(--sage);
-      border-color:var(--sage);
-      color:var(--cream);
+      background:var(--secondary-brown);
+      border-color:var(--secondary-brown);
+      color:var(--background);
       transform:rotate(45deg) scale(1.1);
     }
 
@@ -341,6 +351,7 @@
       margin-left:-16px;
       border-bottom:1px solid var(--line);
       border-radius:12px;
+      background:var(--background);
       transition:background .25s;
     }
 
@@ -358,7 +369,7 @@
 
     .job time{
       font:13px 'DM Sans',sans-serif;
-      color:var(--accent);
+      color:var(--accent-brown);
     }
 
     .job h3{
@@ -371,11 +382,11 @@
     .job p{
       margin:7px 0 0;
       max-width:700px;
-      color:#60453C;
+      color:var(--muted-brown);
     }
 
     .about{
-      background:var(--card);
+      background:var(--background);
       color:var(--ink);
       border-top:1px solid var(--line);
     }
@@ -395,24 +406,24 @@
     }
 
     .hobby{
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:16px 18px;
       display:flex;
       align-items:center;
       gap:14px;
+      padding:16px 18px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--background);
       transition:border-color .25s,transform .25s,background .25s;
-      background:var(--cream);
     }
 
     .hobby:nth-child(odd):hover{
-      border-color:var(--accent);
+      border-color:var(--accent-brown);
       background:var(--hover-one);
       transform:translateX(4px);
     }
 
     .hobby:nth-child(even):hover{
-      border-color:var(--accent);
+      border-color:var(--accent-brown);
       background:var(--hover-two);
       transform:translateX(4px);
     }
@@ -420,32 +431,32 @@
     .hobby-emoji{
       width:44px;
       height:44px;
-      border-radius:99px;
-      background:var(--card);
-      border:1px solid var(--line);
+      flex:none;
       display:flex;
       align-items:center;
       justify-content:center;
+      border:1px solid var(--line);
+      border-radius:99px;
+      background:var(--background);
       font-size:20px;
-      flex:none;
       transition:transform .4s cubic-bezier(.34,1.56,.64,1),background .25s;
     }
 
     .hobby:nth-child(odd):hover .hobby-emoji,
     .hobby:nth-child(even):hover .hobby-emoji{
-      transform:rotate(-12deg) scale(1.12);
       background:var(--hover-accent);
+      transform:rotate(-12deg) scale(1.12);
     }
 
     .hobby b{
-      font:600 18px 'Fredoka',sans-serif;
       display:block;
       color:var(--ink);
+      font:600 18px 'Fredoka',sans-serif;
     }
 
     footer{
       padding:44px 0;
-      background:var(--card);
+      background:var(--background);
       border-top:1px solid var(--line);
     }
 
@@ -456,21 +467,21 @@
     }
 
     .foot h2{
-      font:600 48px/.95 'Fredoka',sans-serif;
       margin:0;
-      color:var(--lightbrown);
+      color:var(--primary-brown);
+      font:600 48px/.95 'Fredoka',sans-serif;
     }
 
     .foot a{
+      color:var(--ink);
       text-decoration:none;
       border-bottom:1px solid var(--ink);
-      color:var(--ink);
       transition:color .2s,border-color .2s;
     }
 
     .foot a:hover{
-      color:var(--lightbrown);
-      border-color:var(--lightbrown);
+      color:var(--primary-brown);
+      border-color:var(--primary-brown);
     }
 
     .load-in{
@@ -557,9 +568,8 @@
         padding-top:44px;
       }
 
-      .about-grid,
-      .hobbies,
-      .projects{
+      .projects,
+      .hobbies{
         grid-template-columns:1fr;
       }
 
@@ -631,33 +641,31 @@
         </div>
 
         <div class="hero-grid">
-          <div>
-            <a
-              class="chip load-in"
-              href="https://www.google.com/maps/place/Berkeley,+CA"
-              target="_blank"
-              rel="noopener"
-            >
-              Berkeley, California
-            </a>
+          <a
+            class="chip load-in"
+            href="https://www.google.com/maps/place/Berkeley,+CA"
+            target="_blank"
+            rel="noopener"
+          >
+            Berkeley, California
+          </a>
 
-            <p class="hi load-in">Hi, I'm</p>
+          <p class="hi load-in">Hi, I'm</p>
 
-            <div class="name-wrap">
-              <h1 class="load-in">Jamka Zulkhuu.</h1>
-            </div>
+          <div class="name-wrap">
+            <h1 class="load-in">Jamka Zulkhuu.</h1>
+          </div>
 
-            <p class="hero-copy load-in">
-              Currently studying Business Analytics at UC Berkeley and building
-              useful products. I love talking, collaborating and shipping with
-              diverse teams.
-            </p>
+          <p class="hero-copy load-in">
+            Currently studying Business Analytics at UC Berkeley and building
+            useful products. I love talking, collaborating and shipping with
+            diverse teams.
+          </p>
 
-            <div class="tags reveal">
-              <span class="tag">Machine Learning</span>
-              <span class="tag">Product</span>
-              <span class="tag">AI</span>
-            </div>
+          <div class="tags reveal">
+            <span class="tag">Data &amp; AI</span>
+            <span class="tag">Product</span>
+            <span class="tag">Research</span>
           </div>
         </div>
       </div>
@@ -707,7 +715,7 @@
               <h3>Office of the CFO / Intern</h3>
               <p>
                 Managed UC Berkeley's $1.8 million student portfolio and budget
-                alongside Chief Financial Officer.
+                alongside the Chief Financial Officer.
               </p>
             </div>
           </article>
@@ -751,7 +759,7 @@
                 stroke-width="2"
                 stroke-linecap="round"
               >
-                <path d="M5 12h14M13 6l6 6-6 6"/>
+                <path d="M5 12h14M13 6l6 6-6 6"></path>
               </svg>
             </div>
 
@@ -780,7 +788,7 @@
                 stroke-width="2"
                 stroke-linecap="round"
               >
-                <path d="M5 12h14M13 6l6 6-6 6"/>
+                <path d="M5 12h14M13 6l6 6-6 6"></path>
               </svg>
             </div>
 
@@ -801,7 +809,7 @@
                 stroke-width="2"
                 stroke-linecap="round"
               >
-                <path d="M5 12h14M13 6l6 6-6 6"/>
+                <path d="M5 12h14M13 6l6 6-6 6"></path>
               </svg>
             </div>
 
@@ -821,29 +829,27 @@
 
     <section class="section about reveal" id="about">
       <div class="w about-grid">
-        <div>
-          <h2 class="title">Hobbies.</h2>
+        <h2 class="title">Hobbies.</h2>
 
-          <div class="hobbies">
-            <div class="hobby stagger">
-              <div class="hobby-emoji">🏀</div>
-              <b>Basketball</b>
-            </div>
+        <div class="hobbies">
+          <div class="hobby stagger">
+            <div class="hobby-emoji">🏀</div>
+            <b>Basketball</b>
+          </div>
 
-            <div class="hobby stagger">
-              <div class="hobby-emoji">📷</div>
-              <b>Photography</b>
-            </div>
+          <div class="hobby stagger">
+            <div class="hobby-emoji">📷</div>
+            <b>Photography</b>
+          </div>
 
-            <div class="hobby stagger">
-              <div class="hobby-emoji">🍳</div>
-              <b>Cooking</b>
-            </div>
+          <div class="hobby stagger">
+            <div class="hobby-emoji">🍳</div>
+            <b>Cooking</b>
+          </div>
 
-            <div class="hobby stagger">
-              <div class="hobby-emoji">🥾</div>
-              <b>Hiking</b>
-            </div>
+          <div class="hobby stagger">
+            <div class="hobby-emoji">🥾</div>
+            <b>Hiking</b>
           </div>
         </div>
       </div>
@@ -865,35 +871,37 @@
       setTimeout(() => el.classList.add('in'), 120 + i * 110);
     });
 
-    const els = document.querySelectorAll('.reveal');
+    const revealElements = document.querySelectorAll('.reveal');
 
-    const io = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('in');
-            io.unobserve(entry.target);
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold:0.15 }
     );
 
-    els.forEach((el) => io.observe(el));
+    revealElements.forEach((element) => observer.observe(element));
 
-    function updateSFClock() {
+    function updateSFClock(){
       const now = new Date();
 
       const parts = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'America/Los_Angeles',
-        hour12: true,
-        hour: 'numeric',
-        minute: '2-digit'
+        timeZone:'America/Los_Angeles',
+        hour12:true,
+        hour:'numeric',
+        minute:'2-digit'
       }).formatToParts(now);
 
       const hour = parts.find((part) => part.type === 'hour').value;
       const minute = parts.find((part) => part.type === 'minute').value;
-      const dayPeriod = parts.find((part) => part.type === 'dayPeriod').value;
+      const dayPeriod = parts.find(
+        (part) => part.type === 'dayPeriod'
+      ).value;
 
       document.getElementById('sfTime').innerHTML =
         `${hour}<span class="blink">:</span>${minute} ${dayPeriod}`;
