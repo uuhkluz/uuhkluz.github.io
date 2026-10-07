@@ -111,47 +111,22 @@ header{
   padding:70px 0 90px;
   display:flex;
   align-items:center;
+  text-align:center;
 }
 
 .hero-inner{
   width:100%;
 }
 
-.hero-meta{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  margin-bottom:95px;
-  text-transform:lowercase;
-}
-
-.location{
-  display:inline-block;
-  background:var(--red);
-  color:#fff;
-  padding:4px 7px;
-}
-
-.clock{
-  text-align:right;
-}
-
-.clock-time{
-  display:block;
-  font-size:12px;
-}
-
-.clock-label{
-  color:var(--gray);
-  font-size:10px;
-}
-
 .hero-title{
-  max-width:900px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 .kicker{
-  margin:0 0 12px;
+  margin:0 0 18px;
   color:var(--gray);
   font-size:13px;
 }
@@ -170,9 +145,16 @@ h1{
   display:inline-block;
 }
 
+.berkeley{
+  margin-top:22px;
+  font-size:12px;
+  color:var(--gray);
+  text-transform:lowercase;
+}
+
 .hero-description{
   max-width:500px;
-  margin:40px 0 0;
+  margin:40px auto 0;
   color:#444;
   font-size:12px;
   line-height:1.8;
@@ -181,7 +163,7 @@ h1{
 .hero-bottom{
   margin-top:85px;
   display:flex;
-  justify-content:space-between;
+  justify-content:center;
   align-items:end;
   border-top:1px solid var(--line);
   padding-top:14px;
@@ -189,12 +171,13 @@ h1{
 
 .hero-tags{
   display:flex;
+  justify-content:center;
   gap:20px;
   color:var(--gray);
 }
 
 .scroll{
-  color:var(--gray);
+  display:none;
 }
 
 /* =========================
@@ -554,24 +537,22 @@ footer{
 
   .hero{
     min-height:auto;
-    padding:45px 0 65px;
-  }
-
-  .hero-meta{
-    margin-bottom:75px;
+    padding:70px 0 65px;
   }
 
   h1{
     font-size:18vw;
   }
 
+  .berkeley{
+    margin-top:18px;
+  }
+
   .hero-bottom{
     margin-top:60px;
-    display:block;
   }
 
   .hero-tags{
-    margin-bottom:15px;
     gap:13px;
     flex-wrap:wrap;
   }
@@ -658,25 +639,6 @@ footer{
 <section class="hero">
   <div class="w hero-inner">
 
-    <div class="hero-meta">
-
-      <a
-        class="location"
-        href="https://www.google.com/maps/place/Berkeley,+CA"
-        target="_blank"
-        rel="noopener"
-      >
-        berkeley, california
-      </a>
-
-      <div class="clock">
-        <span class="clock-time" id="sfTime">--:--</span>
-        <span class="clock-label">san francisco</span>
-      </div>
-
-    </div>
-
-
     <div class="hero-title fade">
 
       <p class="kicker">
@@ -685,6 +647,10 @@ footer{
 
       <div class="name">
         <h1>Jamka<br>Zulkhuu.</h1>
+      </div>
+
+      <div class="berkeley">
+        berkeley, california
       </div>
 
       <p class="hero-description">
@@ -703,10 +669,6 @@ footer{
         <span>product</span>
         <span>research</span>
       </div>
-
-      <span class="scroll">
-        scroll ↓
-      </span>
 
     </div>
 
@@ -1188,38 +1150,6 @@ document
 
 
 /* =========================
-   SAN FRANCISCO CLOCK
-========================= */
-
-function updateSFClock(){
-
-  const parts =
-    new Intl.DateTimeFormat(
-      'en-US',
-      {
-        timeZone:'America/Los_Angeles',
-        hour12:true,
-        hour:'numeric',
-        minute:'2-digit'
-      }
-    ).formatToParts(new Date());
-
-  const get = type =>
-    parts.find(part => part.type === type).value;
-
-  document
-    .getElementById('sfTime')
-    .textContent =
-      `${get('hour')}:${get('minute')} ${get('dayPeriod')}`;
-
-}
-
-updateSFClock();
-
-setInterval(updateSFClock,1000);
-
-
-/* =========================
    EGG MOUSE CURSOR
 ========================= */
 
@@ -1296,22 +1226,12 @@ setInterval(updateSFClock,1000);
 
   egg.innerHTML = whole;
 
-  /*
-    Hide the normal mouse cursor everywhere,
-    including over your name and JZ.
-  */
 
   document
     .documentElement
     .classList
     .add('egg-cursor');
 
-
-  /*
-    Keep egg visible everywhere.
-    This fixes the old behavior where it disappeared
-    when hovering over the name/logo.
-  */
 
   addEventListener(
     'mousemove',
@@ -1333,10 +1253,6 @@ setInterval(updateSFClock,1000);
     }
   );
 
-
-  /*
-    Crack egg while clicking.
-  */
 
   addEventListener(
     'mousedown',
