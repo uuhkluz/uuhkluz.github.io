@@ -7,731 +7,619 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --ink:#1d1d1f;
-  --primary-brown:#FFD60A;
-  --background:#f5f5f7;
-  --line:#d2d2d7;
-  --secondary-brown:#424245;
-  --muted-brown:#6e6e73;
-  --accent-brown:#86868b;
-  --hover-one:#ebebf0;
-  --hover-two:#e8e8ed;
-  --hover-accent:#FFE24D;
-  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter','Helvetica Neue',Helvetica,Arial,sans-serif
+  --black:#111;
+  --gray:#777;
+  --light:#f7f7f5;
+  --line:#ddd;
+  --red:#ed1c24;
+  --mono:'IBM Plex Mono','Courier New',monospace;
 }
 
 *{
-  box-sizing:border-box
+  box-sizing:border-box;
 }
 
 html{
   scroll-behavior:smooth;
-  background:var(--background)
+  background:#fff;
 }
 
 body{
   margin:0;
-  background:var(--background);
-  color:var(--ink);
-  font:16px/1.6 var(--font);
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased
+  background:#fff;
+  color:var(--black);
+  font-family:var(--mono);
+  font-size:12px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
 }
 
 a{
-  color:inherit
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
 }
 
 .w{
-  max-width:1180px;
-  margin:auto;
-  padding:0 28px
+  width:min(1120px,calc(100% - 48px));
+  margin:0 auto;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 header{
-  padding:22px 0
+  padding:22px 0;
+  border-bottom:1px solid var(--line);
 }
 
 .nav{
   display:grid;
   grid-template-columns:1fr auto 1fr;
-  align-items:center
+  align-items:center;
 }
 
 .mark{
-  font:600 20px/1 var(--font);
-  letter-spacing:-.01em;
-  text-decoration:none;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:-.08em;
   justify-self:start;
-  color:var(--primary-brown)
 }
 
 .nav nav{
   display:flex;
-  gap:10px;
-  justify-self:center
+  gap:26px;
+  justify-content:center;
 }
 
 .nav nav a{
-  font:500 13px/1 var(--font);
-  text-decoration:none;
-  padding:10px 18px;
-  border-radius:99px;
-  border:1px solid var(--line);
-  color:var(--ink);
-  transition:border-color .2s,background .2s,color .2s
+  font-size:11px;
+  text-transform:lowercase;
+  transition:color .15s;
 }
 
 .nav nav a:hover{
-  border-color:var(--primary-brown);
-  background:var(--hover-one);
-  color:var(--primary-brown)
+  color:var(--red);
 }
 
 .talk{
-  background:var(--ink);
-  color:var(--background)!important;
-  padding:11px 20px;
-  border-radius:99px;
-  text-decoration:none;
-  font:500 13px/1 var(--font);
-  display:inline-flex;
-  align-items:center;
   justify-self:end;
-  transition:background .2s
+  font-size:11px;
+  border-bottom:1px solid var(--black);
+  padding-bottom:2px;
 }
 
 .talk:hover{
-  background:var(--primary-brown)
+  color:var(--red);
+  border-color:var(--red);
 }
 
-a:focus-visible{
-  outline:2px solid var(--primary-brown);
-  outline-offset:3px
-}
+/* =========================
+   HERO
+========================= */
 
 .hero{
-  padding:56px 0 40px;
-  position:relative
-}
-
-.hero-grid{
-  max-width:800px
-}
-
-.sf-clock-wrap{
-  position:absolute;
-  top:56px;
-  right:28px;
+  min-height:680px;
+  padding:70px 0 90px;
   display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:2px
+  align-items:center;
 }
 
-.sf-time{
-  font:500 28px/1 var(--font);
-  font-variant-numeric:tabular-nums;
-  letter-spacing:-.01em;
-  color:var(--ink)
+.hero-inner{
+  width:100%;
 }
 
-.sf-clock-label{
-  font:12px var(--font);
-  color:var(--secondary-brown)
+.hero-meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:95px;
+  text-transform:lowercase;
 }
 
-.chip{
-  font:500 13px var(--font);
-  background:var(--primary-brown);
-  color:var(--background);
-  border:2px solid var(--primary-brown);
-  border-radius:99px;
-  padding:8px 14px;
+.location{
   display:inline-block;
-  text-decoration:none;
-  transition:background .2s,color .2s,border-color .2s
+  background:var(--red);
+  color:#fff;
+  padding:4px 7px;
 }
 
-.chip:hover{
-  background:var(--hover-accent);
-  color:var(--ink);
-  border-color:var(--hover-accent)
+.clock{
+  text-align:right;
 }
 
-.hi{
-  font:500 18px var(--font);
-  margin:28px 0 4px;
-  color:var(--primary-brown)
+.clock-time{
+  display:block;
+  font-size:12px;
+}
+
+.clock-label{
+  color:var(--gray);
+  font-size:10px;
+}
+
+.hero-title{
+  max-width:900px;
+}
+
+.kicker{
+  margin:0 0 12px;
+  color:var(--gray);
+  font-size:13px;
 }
 
 h1{
-  font:600 clamp(40px,7vw,80px)/1.02 var(--font);
-  letter-spacing:-.035em;
-  margin:0 0 24px;
-  color:var(--primary-brown)
+  margin:0;
+  font-size:clamp(48px,9vw,112px);
+  line-height:.88;
+  font-weight:500;
+  letter-spacing:-.095em;
+  text-transform:uppercase;
 }
 
-.hero-copy{
-  font-size:18px;
-  max-width:560px;
-  margin:0 0 26px;
-  color:var(--muted-brown)
+.name{
+  position:relative;
+  display:inline-block;
 }
 
-.tags{
+.hero-description{
+  max-width:500px;
+  margin:40px 0 0;
+  color:#444;
+  font-size:12px;
+  line-height:1.8;
+}
+
+.hero-bottom{
+  margin-top:85px;
   display:flex;
-  flex-wrap:wrap;
-  gap:10px
+  justify-content:space-between;
+  align-items:end;
+  border-top:1px solid var(--line);
+  padding-top:14px;
 }
 
-.tag{
-  font:500 13px var(--font);
-  border:1px solid var(--line);
-  border-radius:99px;
-  padding:7px 14px;
-  color:var(--secondary-brown)
+.hero-tags{
+  display:flex;
+  gap:20px;
+  color:var(--gray);
 }
+
+.scroll{
+  color:var(--gray);
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
 
 .section{
-  padding:88px 0
+  padding:95px 0;
+  border-top:1px solid var(--line);
 }
 
-.title{
-  font:600 32px/1.1 var(--font);
-  letter-spacing:-.025em;
-  margin:0 0 36px;
-  color:var(--ink)
+.section-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:55px;
+}
+
+.section-title{
+  margin:0;
+  font-size:13px;
+  font-weight:500;
+  text-transform:uppercase;
+}
+
+.section-number{
+  color:var(--gray);
+  font-size:10px;
+}
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience{
+  max-width:950px;
+}
+
+.job{
+  display:grid;
+  grid-template-columns:150px 1fr 110px;
+  gap:25px;
+  padding:19px 0;
+  border-top:1px solid var(--line);
+  transition:padding .2s,background .2s;
+}
+
+.job:last-child{
+  border-bottom:1px solid var(--line);
+}
+
+.job:hover{
+  padding-left:10px;
+  padding-right:10px;
+  background:var(--light);
+}
+
+.job-date{
+  color:var(--gray);
+  font-size:10px;
+}
+
+.job-company{
+  margin:0 0 4px;
+  font-size:12px;
+  font-weight:500;
+}
+
+.job-role{
+  margin:0;
+  color:var(--gray);
+  font-size:11px;
+}
+
+.job-location{
+  text-align:right;
+  color:var(--gray);
+  font-size:10px;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+#work{
+  background:#fafafa;
 }
 
 .projects{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px
+  gap:22px;
 }
 
 .project{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:16px;
-  color:var(--ink);
-  text-decoration:none;
-  transition:transform .25s,border-color .25s,background .25s
+  display:block;
+  background:#fff;
+  transition:transform .25s;
 }
 
 .project:hover{
   transform:translateY(-4px);
-  border-color:var(--accent-brown);
-  background:var(--hover-one)
 }
 
-.project .body{
-  padding:24px
+.project-image{
+  width:100%;
+  height:300px;
+  overflow:hidden;
+  background:#eee;
+  border:1px solid #e4e4e4;
 }
 
-.project .num{
-  font:500 13px var(--font);
-  color:var(--secondary-brown)
-}
-
-.project h3{
-  font:600 20px/1.25 var(--font);
-  letter-spacing:-.015em;
-  margin:8px 0 10px
-}
-
-.project p{
-  margin:0;
-  font-size:14px;
-  color:var(--muted-brown)
-}
-
-.project b{
+.project-image img{
+  width:100%;
+  height:100%;
   display:block;
-  margin-top:18px;
-  font:500 13px var(--font);
-  color:var(--secondary-brown)
+  object-fit:cover;
+  object-position:center;
+  transition:transform .5s ease;
 }
 
-.project-icon{
-  position:absolute;
-  top:16px;
-  right:16px;
-  width:34px;
-  height:34px;
-  border:1px solid var(--line);
-  border-radius:99px;
+.project:hover .project-image img{
+  transform:scale(1.025);
+}
+
+.project-info{
+  padding:15px 0 8px;
+}
+
+.project-top{
   display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:transform .3s,background .25s,color .25s
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
 }
 
-.project-icon svg{
-  width:14px;
-  height:14px
-}
-
-.project:hover .project-icon{
-  background:var(--secondary-brown);
-  border-color:var(--secondary-brown);
-  color:var(--background);
-  transform:rotate(45deg)
-}
-
-.journey{
-  max-width:900px
-}
-
-.job{
-  display:grid;
-  grid-template-columns:150px 1fr;
-  gap:20px;
-  padding:28px 24px;
-  margin:0 -24px;
-  border-bottom:1px solid var(--line);
-  border-radius:12px;
-  transition:background .25s
-}
-
-.job:hover{
-  background:var(--hover-one)
-}
-
-.job time{
-  font:500 13px var(--font);
-  color:var(--accent-brown);
-  padding-top:4px
-}
-
-.job h3{
+.project-title{
   margin:0;
-  font:600 17px/1.35 var(--font);
-  letter-spacing:-.01em
+  font-size:13px;
+  font-weight:500;
 }
 
-.job p{
-  margin:6px 0 0;
-  max-width:700px;
-  font-size:15px;
-  color:var(--muted-brown)
+.project-year{
+  color:var(--gray);
+  font-size:10px;
 }
+
+.project-description{
+  margin:7px 0 0;
+  color:var(--gray);
+  font-size:10px;
+  line-height:1.7;
+}
+
+.project-link{
+  display:inline-block;
+  margin-top:10px;
+  font-size:10px;
+  border-bottom:1px solid var(--black);
+}
+
+.project:hover .project-link{
+  color:var(--red);
+  border-color:var(--red);
+}
+
+/* =========================
+   ABOUT
+========================= */
 
 .about-grid{
-  max-width:700px
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:80px;
+}
+
+.about-copy{
+  max-width:600px;
+}
+
+.about-copy p{
+  margin:0 0 22px;
+  font-size:12px;
+  line-height:1.9;
+}
+
+.about-copy .muted{
+  color:var(--gray);
 }
 
 .hobbies{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px
+  grid-template-columns:repeat(2,1fr);
+  border-top:1px solid var(--line);
 }
 
 .hobby{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:16px 18px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  transition:border-color .25s,background .25s
+  padding:18px 0;
+  border-bottom:1px solid var(--line);
 }
 
-.hobby:hover{
-  border-color:var(--accent-brown);
-  background:var(--hover-one)
+.hobby:nth-child(odd){
+  padding-right:25px;
+  border-right:1px solid var(--line);
 }
 
-.hobby-emoji{
-  width:44px;
-  height:44px;
-  flex:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid var(--line);
-  border-radius:99px;
-  font-size:20px
+.hobby:nth-child(even){
+  padding-left:25px;
 }
 
-.hobby b{
-  font:600 16px var(--font)
+.hobby-number{
+  color:var(--gray);
+  font-size:9px;
+  margin-bottom:8px;
 }
+
+.hobby-name{
+  font-size:12px;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-  padding:44px 0
+  padding:70px 0 35px;
+  background:#fff;
+  border-top:1px solid var(--line);
 }
 
-.foot{
+.footer-main{
   display:flex;
   justify-content:space-between;
-  align-items:end;
-  gap:24px
+  align-items:flex-end;
 }
 
-.foot h2{
+.footer-title{
   margin:0;
-  color:var(--primary-brown);
-  font:600 40px/1.05 var(--font);
-  letter-spacing:-.03em
+  font-size:clamp(30px,6vw,72px);
+  line-height:.9;
+  font-weight:500;
+  letter-spacing:-.08em;
+  text-transform:uppercase;
 }
 
-.foot a{
-  text-decoration:none;
-  border-bottom:1px solid var(--ink);
-  transition:color .2s,border-color .2s
-}
-
-.foot a:hover{
-  color:var(--primary-brown);
-  border-color:var(--primary-brown)
-}
-
-.load-in,
-.reveal,
-.stagger{
-  opacity:0;
-  transform:translateY(16px);
-  transition:opacity .7s ease,transform .7s ease
-}
-
-.load-in.in,
-.reveal.in{
-  opacity:1;
-  transform:none
-}
-
-.reveal.in .stagger{
-  opacity:1;
-  transform:none
-}
-
-.stagger:nth-child(2){
-  transition-delay:.1s
-}
-
-.stagger:nth-child(3){
-  transition-delay:.2s
-}
-
-.stagger:nth-child(4){
-  transition-delay:.3s
-}
-
-.stagger:nth-child(5){
-  transition-delay:.4s
-}
-
-.stagger:nth-child(6){
-  transition-delay:.5s
-}
-
-.tags.reveal .tag{
-  opacity:1;
-  transform:none
-}
-
-@media(prefers-reduced-motion:reduce){
-  .reveal,
-  .load-in,
-  .stagger{
-    opacity:1;
-    transform:none;
-    transition:none
-  }
-}
-
-@media(max-width:720px){
-  .w{
-    padding:0 20px
-  }
-
-  .nav{
-    grid-template-columns:1fr auto
-  }
-
-  .nav nav{
-    display:none
-  }
-
-  .hero{
-    padding-top:44px
-  }
-
-  .projects,
-  .hobbies{
-    grid-template-columns:1fr
-  }
-
-  .section{
-    padding:60px 0
-  }
-
-  .job{
-    grid-template-columns:1fr;
-    gap:4px;
-    padding:22px 16px;
-    margin:0 -16px
-  }
-
-  .foot{
-    display:block
-  }
-
-  .foot a{
-    display:inline-block;
-    margin-top:22px
-  }
-
-  .sf-clock-wrap{
-    position:static;
-    flex-direction:row;
-    margin-bottom:20px
-  }
-}
-
-
-/* Apple-style overrides */
-
-body{
-  background:#f5f5f7
-}
-
-.mark{
-  color:var(--ink)
-}
-
-.nav nav a{
-  border:none;
-  background:transparent;
-  color:var(--ink);
-  padding:10px 14px
-}
-
-.nav nav a:hover{
-  background:#FFF3B0;
-  color:var(--ink)
-}
-
-.talk{
-  background:#FFD60A;
-  color:var(--ink)!important;
-  font-size:14px;
-  font-weight:600;
-  padding:12px 20px
-}
-
-.talk:hover{
-  background:#FFE24D
-}
-
-.chip{
-  background:#FFF3B0;
-  color:var(--ink);
-  border:1px solid #FFD60A
-}
-
-.chip:hover{
-  background:#FFD60A;
-  color:var(--ink);
-  border-color:#FFD60A
-}
-
-.hi{
-  color:var(--muted-brown)
-}
-
-h1{
-  color:var(--ink);
-  letter-spacing:-.045em;
-  font-weight:600
-}
-
-.hero{
-  text-align:left
-}
-
-.hero-copy{
-  color:var(--muted-brown)
-}
-
-.tag{
-  border:none;
-  background:#FFF3B0;
-  color:var(--ink)
-}
-
-.title,
-.foot h2{
-  color:var(--ink);
-  letter-spacing:-.04em
-}
-
-.job:hover{
-  background:#ececf0
-}
-
-#work{
-  background:#fff
-}
-
-.project{
-  background:#f5f5f7;
-  border:none;
-  border-radius:20px
-}
-
-.project:hover{
-  background:#ececf0;
-  border:none;
-  transform:translateY(-3px)
-}
-
-.project b{
-  color:var(--ink);
-  font-weight:600
-}
-
-.project-icon{
-  background:#fff;
-  border:none
-}
-
-.project:hover .project-icon{
-  background:#FFD60A;
-  color:var(--ink);
-  border:none
-}
-
-#about .hobby{
-  background:#fff;
-  border:none;
-  border-radius:18px
-}
-
-#about .hobby:hover{
-  background:#fff;
-  box-shadow:0 2px 14px rgba(0,0,0,.08)
-}
-
-.hobby-emoji{
-  border:none;
-  background:#f5f5f7
-}
-
-footer{
-  background:#fff
-}
-
-.foot a{
-  color:var(--ink);
-  border-bottom:2px solid #FFD60A
-}
-
-.foot a:hover{
-  background:#FFF3B0;
-  color:var(--ink);
-  border-color:#FFD60A
-}
-
-a:focus-visible{
-  outline-color:#1d1d1f
-}
-
-.foot-links{
+.footer-links{
   display:flex;
-  gap:28px;
-  flex-wrap:wrap
+  gap:25px;
 }
 
-@media(max-width:720px){
-  .foot a{
-    margin-top:0
-  }
-
-  .foot-links{
-    margin-top:22px;
-    gap:18px
-  }
+.footer-links a{
+  font-size:10px;
+  border-bottom:1px solid var(--black);
 }
 
-
-/* Name / egg */
-
-.name-wrap{
-  position:relative;
-  display:inline-block;
-  margin-top:40px
+.footer-links a:hover{
+  color:var(--red);
+  border-color:var(--red);
 }
 
-.name-wrap h1{
-  margin-bottom:24px
+.copyright{
+  display:flex;
+  justify-content:space-between;
+  margin-top:90px;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--gray);
+  font-size:9px;
 }
 
-.egg{
-  position:absolute;
-  left:12%;
-  bottom:calc(100% - 10px);
-  width:clamp(96px,14vw,170px);
-  height:auto;
-  transform-origin:50% 100%;
-  animation:breathe 4s ease-in-out infinite;
-  pointer-events:none
-}
-
-@keyframes breathe{
-  50%{
-    transform:scale(1.03,1.06)
-  }
-}
-
-@media(prefers-reduced-motion:reduce){
-  .egg{
-    animation:none
-  }
-}
-
-
-/* Egg cursor */
+/* =========================
+   EGG CURSOR
+========================= */
 
 #egg{
   position:fixed;
   left:0;
   top:0;
-  width:36px;
-  height:36px;
-  margin:-18px 0 0 -18px;
+  width:34px;
+  height:34px;
+  margin:-17px 0 0 -17px;
   pointer-events:none;
   z-index:9999;
   opacity:0;
-  transition:opacity .15s
+  transition:opacity .12s;
 }
 
 #egg.on{
-  opacity:1
+  opacity:1;
 }
 
-
-/*
-  IMPORTANT:
-  The egg cursor now remains active over your name
-  and the JZ logo too.
-*/
+#egg svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
 
 @media(hover:hover) and (pointer:fine){
   html.egg-cursor,
   html.egg-cursor *{
-    cursor:none!important
+    cursor:none!important;
   }
 }
 
+/* =========================
+   ANIMATION
+========================= */
+
+.fade{
+  opacity:0;
+  transform:translateY(12px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+
+.fade.in{
+  opacity:1;
+  transform:none;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .fade{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+
+  .project:hover{
+    transform:none;
+  }
+
+  .project:hover .project-image img{
+    transform:none;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:760px){
+
+  .w{
+    width:min(100% - 32px,1120px);
+  }
+
+  header{
+    padding:18px 0;
+  }
+
+  .nav{
+    grid-template-columns:1fr auto;
+  }
+
+  .nav nav{
+    display:none;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:45px 0 65px;
+  }
+
+  .hero-meta{
+    margin-bottom:75px;
+  }
+
+  h1{
+    font-size:18vw;
+  }
+
+  .hero-bottom{
+    margin-top:60px;
+    display:block;
+  }
+
+  .hero-tags{
+    margin-bottom:15px;
+    gap:13px;
+    flex-wrap:wrap;
+  }
+
+  .section{
+    padding:65px 0;
+  }
+
+  .section-header{
+    margin-bottom:35px;
+  }
+
+  .job{
+    grid-template-columns:1fr;
+    gap:5px;
+    padding:17px 0;
+  }
+
+  .job-location{
+    text-align:left;
+  }
+
+  .projects{
+    grid-template-columns:1fr;
+    gap:42px;
+  }
+
+  .project-image{
+    height:260px;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:45px;
+  }
+
+  .footer-main{
+    display:block;
+  }
+
+  .footer-links{
+    margin-top:35px;
+  }
+
+  .copyright{
+    margin-top:60px;
+  }
+}
 </style>
 </head>
 
@@ -743,9 +631,9 @@ a:focus-visible{
     <a class="mark" href="#">JZ</a>
 
     <nav>
-      <a href="#experience">Experience</a>
-      <a href="#work">Projects</a>
-      <a href="#about">Hobbies</a>
+      <a href="#experience">experience</a>
+      <a href="#work">projects</a>
+      <a href="#about">about</a>
     </nav>
 
     <a
@@ -754,7 +642,7 @@ a:focus-visible{
       target="_blank"
       rel="noopener"
     >
-      Talk with me ↗
+      talk with me ↗
     </a>
 
   </div>
@@ -763,189 +651,444 @@ a:focus-visible{
 
 <main>
 
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
+  <div class="w hero-inner">
 
-  <div class="w">
-
-    <div class="sf-clock-wrap">
-      <span class="sf-time" id="sfTime">--:--</span>
-      <span class="sf-clock-label">San Francisco</span>
-    </div>
-
-    <div class="hero-grid">
+    <div class="hero-meta">
 
       <a
-        class="chip load-in"
+        class="location"
         href="https://www.google.com/maps/place/Berkeley,+CA"
         target="_blank"
         rel="noopener"
       >
-        Berkeley, California
+        berkeley, california
       </a>
 
-      <p class="hi load-in">Hi I'm</p>
-
-      <div class="name-wrap">
-        <h1 class="load-in">JAMKA ZULKHUU</h1>
-      </div>
-
-      <p class="hero-copy load-in">
-        currently studying data science + economics at uc berkeley + looking for internships
-      </p>
-
-      <div class="tags reveal">
-        <span class="tag">data &amp; ai</span>
-        <span class="tag">product</span>
-        <span class="tag">research</span>
+      <div class="clock">
+        <span class="clock-time" id="sfTime">--:--</span>
+        <span class="clock-label">san francisco</span>
       </div>
 
     </div>
+
+
+    <div class="hero-title fade">
+
+      <p class="kicker">
+        data science / product / technology
+      </p>
+
+      <div class="name">
+        <h1>Jamka<br>Zulkhuu.</h1>
+      </div>
+
+      <p class="hero-description">
+        UC Berkeley student interested in data, AI and products.
+        I like turning complicated problems into simple things people
+        can actually use.
+      </p>
+
+    </div>
+
+
+    <div class="hero-bottom fade">
+
+      <div class="hero-tags">
+        <span>data &amp; ai</span>
+        <span>product</span>
+        <span>research</span>
+      </div>
+
+      <span class="scroll">
+        scroll ↓
+      </span>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================
+     EXPERIENCE
+========================= -->
+
+<section class="section fade" id="experience">
+
+  <div class="w">
+
+    <div class="section-header">
+      <h2 class="section-title">Experience</h2>
+      <span class="section-number">01</span>
+    </div>
+
+
+    <div class="experience">
+
+      <article class="job">
+
+        <div class="job-date">
+          sept–dec 2025
+        </div>
+
+        <div>
+          <h3 class="job-company">
+            Economics Research
+          </h3>
+
+          <p class="job-role">
+            Research Assistant
+          </p>
+        </div>
+
+        <div class="job-location">
+          berkeley, ca
+        </div>
+
+      </article>
+
+
+      <article class="job">
+
+        <div class="job-date">
+          may–sept 2025
+        </div>
+
+        <div>
+          <h3 class="job-company">
+            Grand Spire Capital
+          </h3>
+
+          <p class="job-role">
+            Summer Analyst
+          </p>
+        </div>
+
+        <div class="job-location">
+          los angeles, ca
+        </div>
+
+      </article>
+
+
+      <article class="job">
+
+        <div class="job-date">
+          jan–may 2025
+        </div>
+
+        <div>
+          <h3 class="job-company">
+            UCSF Health
+          </h3>
+
+          <p class="job-role">
+            Digital Marketing &amp; Strategy
+          </p>
+        </div>
+
+        <div class="job-location">
+          san francisco, ca
+        </div>
+
+      </article>
+
+
+      <article class="job">
+
+        <div class="job-date">
+          jan–may 2025
+        </div>
+
+        <div>
+          <h3 class="job-company">
+            UC Berkeley Office of the CFO
+          </h3>
+
+          <p class="job-role">
+            Intern
+          </p>
+        </div>
+
+        <div class="job-location">
+          berkeley, ca
+        </div>
+
+      </article>
+
+
+      <article class="job">
+
+        <div class="job-date">
+          aug 2024–present
+        </div>
+
+        <div>
+          <h3 class="job-company">
+            Mongolian Student Association
+          </h3>
+
+          <p class="job-role">
+            President
+          </p>
+        </div>
+
+        <div class="job-location">
+          berkeley, ca
+        </div>
+
+      </article>
+
+
+      <article class="job">
+
+        <div class="job-date">
+          june–aug 2023
+        </div>
+
+        <div>
+          <h3 class="job-company">
+            Stanford PIPS
+          </h3>
+
+          <p class="job-role">
+            Intern
+          </p>
+        </div>
+
+        <div class="job-location">
+          stanford, ca
+        </div>
+
+      </article>
+
+    </div>
+
   </div>
 
 </section>
 
 
-<section class="section reveal" id="experience">
+<!-- =========================
+     PROJECTS
+========================= -->
 
-    
-
-</section>
-
-
-<section class="section reveal" id="work">
+<section class="section fade" id="work">
 
   <div class="w">
 
-    <h2 class="title">projects</h2>
+    <div class="section-header">
+      <h2 class="section-title">Selected Projects</h2>
+      <span class="section-number">02</span>
+    </div>
+
 
     <div class="projects">
 
+
+      <!-- FIND A SPOT -->
+
       <a
-        class="project stagger"
+        class="project"
         href="https://www.youtube.com/shorts/MTFa6hZG_FI?feature=share"
         target="_blank"
         rel="noopener"
       >
 
-        <div class="project-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
+        <div class="project-image">
+          <img
+            src="images/find-a-spot.png"
+            alt="Find a Spot project"
+            loading="lazy"
           >
-            <path d="M5 12h14M13 6l6 6-6 6"/>
-          </svg>
         </div>
 
-        <div class="body">
-          <span class="num">Community</span>
-          <h3>StudySpot</h3>
-          <p>
-            a student-powered map for discovering the best places
-            to study around Berkeley
+        <div class="project-info">
+
+          <div class="project-top">
+
+            <h3 class="project-title">
+              Find a Spot
+            </h3>
+
+            <span class="project-year">
+              2026
+            </span>
+
+          </div>
+
+          <p class="project-description">
+            Student-powered map for discovering places to work
+            around Berkeley.
           </p>
-          <b>Watch mockup</b>
+
+          <span class="project-link">
+            watch mockup ↗
+          </span>
+
         </div>
 
       </a>
 
 
+      <!-- ENACTION -->
+
       <a
-        class="project stagger"
+        class="project"
         href="https://drive.google.com/file/d/1i1FfxAyLrqJV1C2YPXMhcBkVQ6v9hfy3/view"
         target="_blank"
         rel="noopener"
       >
 
-        <div class="project-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
+        <div class="project-image">
+          <img
+            src="images/enaction.png"
+            alt="Enaction project"
+            loading="lazy"
           >
-            <path d="M5 12h14M13 6l6 6-6 6"/>
-          </svg>
         </div>
 
-        <div class="body">
-          <span class="num">Culture</span>
-          <h3>Enaction</h3>
-          <p>
-            a commuter app concept for Berkeley students
+        <div class="project-info">
+
+          <div class="project-top">
+
+            <h3 class="project-title">
+              Enaction
+            </h3>
+
+            <span class="project-year">
+              2025
+            </span>
+
+          </div>
+
+          <p class="project-description">
+            Commuter app concept for Berkeley students,
+            built with Product Space.
           </p>
-          <b>View deck</b>
+
+          <span class="project-link">
+            view deck ↗
+          </span>
+
         </div>
 
       </a>
 
 
+      <!-- PERSONAL WEBSITE -->
+
       <a
-        class="project stagger"
+        class="project"
         href="#"
         onclick="return false"
       >
 
-        <div class="project-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
+        <div class="project-image">
+          <img
+            src="images/personal-site.png"
+            alt="Personal website"
+            loading="lazy"
           >
-            <path d="M5 12h14M13 6l6 6-6 6"/>
-          </svg>
         </div>
 
-        <div class="body">
-          <span class="num">Me</span>
-          <h3>Personal Website</h3>
-          <p>
-            an evolving home for projects and the work in progress behind them
+        <div class="project-info">
+
+          <div class="project-top">
+
+            <h3 class="project-title">
+              Personal Website
+            </h3>
+
+            <span class="project-year">
+              2026
+            </span>
+
+          </div>
+
+          <p class="project-description">
+            An evolving home for projects, notes and the work
+            behind them.
           </p>
+
+          <span class="project-link">
+            you are here
+          </span>
+
         </div>
 
       </a>
 
+
     </div>
+
   </div>
 
 </section>
 
 
-<section class="section about reveal" id="about">
+<!-- =========================
+     ABOUT / HOBBIES
+========================= -->
 
-  <div class="w about-grid">
+<section class="section fade" id="about">
 
-    <h2 class="title">hobbies</h2>
+  <div class="w">
 
-    <div class="hobbies">
+    <div class="section-header">
+      <h2 class="section-title">About</h2>
+      <span class="section-number">03</span>
+    </div>
 
-      <div class="hobby stagger">
-        <div class="hobby-emoji">1️⃣</div>
-        <b>gym</b>
+
+    <div class="about-grid">
+
+      <div class="about-copy">
+
+        <p>
+          I'm Jamka, a Berkeley student interested in the
+          intersection of technology, business and people.
+        </p>
+
+        <p class="muted">
+          Outside of work and school, I like finding new places,
+          taking photos, playing basketball and getting outside.
+        </p>
+
       </div>
 
-      <div class="hobby stagger">
-        <div class="hobby-emoji">2️⃣</div>
-        <b>cars</b>
-      </div>
 
-      <div class="hobby stagger">
-        <div class="hobby-emoji">3️⃣</div>
-        <b>chess</b>
-      </div>
+      <div class="hobbies">
 
-      <div class="hobby stagger">
-        <div class="hobby-emoji">4️⃣</div>
-        <b>running</b>
+        <div class="hobby">
+          <div class="hobby-number">01</div>
+          <div class="hobby-name">basketball</div>
+        </div>
+
+        <div class="hobby">
+          <div class="hobby-number">02</div>
+          <div class="hobby-name">photography</div>
+        </div>
+
+        <div class="hobby">
+          <div class="hobby-number">03</div>
+          <div class="hobby-name">cooking</div>
+        </div>
+
+        <div class="hobby">
+          <div class="hobby-number">04</div>
+          <div class="hobby-name">hiking</div>
+        </div>
+
       </div>
 
     </div>
+
   </div>
 
 </section>
@@ -953,27 +1096,50 @@ a:focus-visible{
 </main>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-  <div class="w foot">
+  <div class="w">
 
-    <h2>
-      Let's make something good.
-    </h2>
+    <div class="footer-main">
 
-    <div class="foot-links">
+      <h2 class="footer-title">
+        Let's make<br>
+        something good.
+      </h2>
 
-      <a href="mailto:jamyandagvaz@gmail.com">
-        jamyandagvaz@gmail.com
-      </a>
 
-      <a
-        href="https://linkedin.com/in/zulkhuu"
-        target="_blank"
-        rel="noopener"
-      >
-        LinkedIn
-      </a>
+      <div class="footer-links">
+
+        <a href="mailto:jamyandagvaz@gmail.com">
+          email ↗
+        </a>
+
+        <a
+          href="https://linkedin.com/in/zulkhuu"
+          target="_blank"
+          rel="noopener"
+        >
+          linkedin ↗
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      <span>
+        © 2026 Jamyandagva Zulkhuu
+      </span>
+
+      <span>
+        built in berkeley
+      </span>
 
     </div>
 
@@ -982,56 +1148,70 @@ a:focus-visible{
 </footer>
 
 
+<!-- =========================
+     EGG CURSOR
+========================= -->
+
 <div id="egg" aria-hidden="true"></div>
 
 
 <script>
 
-/* Initial animations */
+/* =========================
+   FADE IN
+========================= */
 
-document.querySelectorAll('.load-in').forEach((el,i)=>
-  setTimeout(
-    ()=>el.classList.add('in'),
-    120+i*110
-  )
-);
+const observer = new IntersectionObserver(
+  entries => {
 
+    entries.forEach(entry => {
 
-/* Scroll reveal */
+      if(entry.isIntersecting){
 
-const io=new IntersectionObserver(
-  es=>es.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('in');
-      io.unobserve(e.target);
-    }
-  }),
-  {threshold:.15}
+        entry.target.classList.add('in');
+
+        observer.unobserve(entry.target);
+
+      }
+
+    });
+
+  },
+  {
+    threshold:.12
+  }
 );
 
 document
-  .querySelectorAll('.reveal')
-  .forEach(el=>io.observe(el));
+  .querySelectorAll('.fade')
+  .forEach(el => observer.observe(el));
 
 
-/* San Francisco clock */
+/* =========================
+   SAN FRANCISCO CLOCK
+========================= */
 
 function updateSFClock(){
 
-  const p=new Intl.DateTimeFormat(
-    'en-US',
-    {
-      timeZone:'America/Los_Angeles',
-      hour12:true,
-      hour:'numeric',
-      minute:'2-digit'
-    }
-  ).formatToParts(new Date());
+  const parts =
+    new Intl.DateTimeFormat(
+      'en-US',
+      {
+        timeZone:'America/Los_Angeles',
+        hour12:true,
+        hour:'numeric',
+        minute:'2-digit'
+      }
+    ).formatToParts(new Date());
 
-  const g=t=>p.find(x=>x.type===t).value;
+  const get = type =>
+    parts.find(part => part.type === type).value;
 
-  document.getElementById('sfTime').textContent=
-    `${g('hour')}:${g('minute')} ${g('dayPeriod')}`;
+  document
+    .getElementById('sfTime')
+    .textContent =
+      `${get('hour')}:${get('minute')} ${get('dayPeriod')}`;
+
 }
 
 updateSFClock();
@@ -1039,31 +1219,36 @@ updateSFClock();
 setInterval(updateSFClock,1000);
 
 
-/* Egg cursor */
+/* =========================
+   EGG MOUSE CURSOR
+========================= */
 
 (function(){
 
   if(
-    !matchMedia('(hover:hover) and (pointer:fine)').matches
-  ) return;
+    !matchMedia(
+      '(hover:hover) and (pointer:fine)'
+    ).matches
+  ){
+    return;
+  }
 
 
-  const whole=`
+  const whole = `
     <svg
       viewBox="0 0 36 36"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M18 3C11.5 3 7 12.5 7 20a11 11 0 0 0 22 0C29 12.5 24.5 3 18 3z"
-        fill="#FFF8E7"
-        stroke="#1d1d1f"
+        fill="#fff"
+        stroke="#111"
         stroke-width="1.6"
       />
-
       <path
         d="M12 12c1.2-3 3-5 5-5.6"
         fill="none"
-        stroke="#fff"
+        stroke="#eee"
         stroke-width="2.2"
         stroke-linecap="round"
       />
@@ -1071,7 +1256,7 @@ setInterval(updateSFClock,1000);
   `;
 
 
-  const cracked=`
+  const cracked = `
     <svg
       viewBox="0 0 36 36"
       xmlns="http://www.w3.org/2000/svg"
@@ -1079,7 +1264,7 @@ setInterval(updateSFClock,1000);
       <path
         d="M5 19c-2.5-6 2-13 9.5-12 5.5-3 13 0 14 7 4 3.5 2.5 11-4 13-4.5 4.5-13 3.5-16-1.5-2.5-.5-4.5-3.5-3.5-6.5z"
         fill="#fff"
-        stroke="#c9c9ce"
+        stroke="#111"
         stroke-width="1.3"
       />
 
@@ -1087,7 +1272,7 @@ setInterval(updateSFClock,1000);
         cx="18.5"
         cy="19.5"
         r="6.5"
-        fill="#FFC20A"
+        fill="#ed1c24"
       />
 
       <ellipse
@@ -1098,64 +1283,86 @@ setInterval(updateSFClock,1000);
         fill="#fff"
         opacity=".7"
       />
+
     </svg>
   `;
 
 
-  const egg=document.getElementById('egg');
+  const egg =
+    document.getElementById('egg');
 
-  let t;
+  let timer;
 
 
-  egg.innerHTML=whole;
+  egg.innerHTML = whole;
 
-  document.documentElement.classList.add('egg-cursor');
+  /*
+    Hide the normal mouse cursor everywhere,
+    including over your name and JZ.
+  */
+
+  document
+    .documentElement
+    .classList
+    .add('egg-cursor');
 
 
   /*
-    The egg now stays visible over EVERYTHING,
-    including your name and JZ logo.
+    Keep egg visible everywhere.
+    This fixes the old behavior where it disappeared
+    when hovering over the name/logo.
   */
 
-  addEventListener('mousemove',e=>{
+  addEventListener(
+    'mousemove',
+    event => {
 
-    egg.style.transform=
-      `translate(${e.clientX}px,${e.clientY}px)`;
+      egg.style.transform =
+        `translate(${event.clientX}px,${event.clientY}px)`;
 
-    egg.classList.add('on');
+      egg.classList.add('on');
 
-  });
-
-
-  document.addEventListener('mouseleave',()=>{
-
-    egg.classList.remove('on');
-
-  });
+    }
+  );
 
 
-  /* Click = cracked egg */
-
-  addEventListener('mousedown',()=>{
-
-    clearTimeout(t);
-
-    egg.innerHTML=cracked;
-
-  });
+  document.addEventListener(
+    'mouseleave',
+    () => {
+      egg.classList.remove('on');
+    }
+  );
 
 
-  /* Return to normal egg after 700ms */
+  /*
+    Crack egg while clicking.
+  */
 
-  addEventListener('mouseup',()=>{
+  addEventListener(
+    'mousedown',
+    () => {
 
-    t=setTimeout(()=>{
+      clearTimeout(timer);
 
-      egg.innerHTML=whole;
+      egg.innerHTML = cracked;
 
-    },700);
+    }
+  );
 
-  });
+
+  addEventListener(
+    'mouseup',
+    () => {
+
+      timer = setTimeout(
+        () => {
+          egg.innerHTML = whole;
+        },
+        700
+      );
+
+    }
+  );
 
 })();
 
