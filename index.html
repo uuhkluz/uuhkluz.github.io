@@ -11,12 +11,33 @@
 
 <style>
 :root{
-  --pink:#ffc9c4;
+  --pink:#fffffd;
   --ink:#0a0a0a;
   --muted:#8a8672;
   --yellow:#ffe033;
   --card:#fffffd;
+  --line:#eeeadf;
+  --line2:#e8e4d6;
+  --hover:#fff9c9;
+  --hl:#d9a800;
+  --navbg:#000;
+  --accent:#ffe033;
+  --accent-bg:rgba(255,224,51,.18);
   --sans:'Inter','Helvetica Neue',Arial,sans-serif;
+}
+
+html[data-theme="dark"]{
+  --pink:#070a12;
+  --card:#070a12;
+  --ink:#eef2fa;
+  --muted:#8b95aa;
+  --line:#151b29;
+  --line2:#1d2536;
+  --hover:rgba(91,157,255,.12);
+  --hl:#5b9dff;
+  --accent:#5b9dff;
+  --accent-bg:rgba(91,157,255,.2);
+  --navbg:#131a28;
 }
 
 *{box-sizing:border-box}
@@ -25,11 +46,12 @@ html{scroll-behavior:smooth;background:var(--pink)}
 
 body{
   margin:0;
-  padding:40px;
+  padding:0;
   background:var(--pink);
   color:var(--ink);
   font-family:var(--sans);
   -webkit-font-smoothing:antialiased;
+  transition:background .35s ease,color .35s ease;
 }
 
 a{color:inherit;text-decoration:none}
@@ -37,7 +59,6 @@ a{color:inherit;text-decoration:none}
 .card{
   position:relative;
   background:var(--card);
-  border-radius:12px;
   overflow:hidden;
 }
 
@@ -52,15 +73,27 @@ a{color:inherit;text-decoration:none}
   align-items:center;
   gap:4px;
   padding:6px;
-  background:#000;
+  background:var(--navbg);
   border-radius:999px;
+  transition:background .35s ease;
 }
 
 .nav .sun{
   width:34px;height:34px;
   display:grid;place-items:center;
   color:#bbb;
+  background:none;
+  border:0;
+  padding:0;
+  cursor:pointer;
+  border-radius:999px;
+  transition:color .2s;
 }
+
+.nav .sun:hover{color:var(--accent)}
+.nav .sun .moon{display:none}
+html[data-theme="dark"] .nav .sun .sunsvg{display:none}
+html[data-theme="dark"] .nav .sun .moon{display:block}
 
 .nav a{
   padding:8px 14px;
@@ -74,21 +107,52 @@ a{color:inherit;text-decoration:none}
 .nav a:hover{color:#fff}
 
 .nav a.active{
-  color:var(--yellow);
-  background:rgba(255,224,51,.18);
+  color:var(--accent);
+  background:var(--accent-bg);
 }
 
 /* ===== HERO ===== */
 .hero{
   position:relative;
-  min-height:calc(100vh - 80px);
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
   padding:0 52px 20px;
+}
+
+.hero > *{position:relative;z-index:1}
+
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  transition:opacity .3s ease;
+}
+
+.hero::before{
   background:
     radial-gradient(ellipse 60% 55% at 50% 0%, #ffe033 0%, rgba(255,224,51,.75) 35%, rgba(255,240,130,0) 100%),
     radial-gradient(ellipse 100% 60% at 50% 0%, rgba(255,235,90,.7) 0%, rgba(255,255,255,0) 80%);
+  opacity:1;
+}
+
+.hero::after{
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 0%, rgba(60,130,255,.65) 0%, rgba(60,130,255,.25) 40%, rgba(60,130,255,0) 100%);
+  opacity:0;
+}
+
+html[data-theme="dark"] .hero::before{opacity:0}
+html[data-theme="dark"] .hero::after{opacity:1}
+
+html.theming *,
+html.theming *::before,
+html.theming *::after{
+  transition:background-color .3s ease,color .3s ease,border-color .3s ease,opacity .3s ease !important;
 }
 
 .tagline{
@@ -103,17 +167,18 @@ a{color:inherit;text-decoration:none}
 .big{
   margin:0;
   font-weight:700;
-  font-size:11.4vw;
+  font-size:9.4vw;
   line-height:.95;
   letter-spacing:-.065em;
   white-space:nowrap;
+  text-transform:uppercase;
   margin-left:-.04em;
 }
 
 /* ===== SECTIONS ===== */
 section.block{
   padding:120px 52px;
-  border-top:1px solid #eeeadf;
+  border-top:1px solid var(--line);
 }
 
 .label{
@@ -131,16 +196,16 @@ section.block{
   align-items:baseline;
   gap:24px;
   padding:34px 0;
-  border-top:1px solid #e8e4d6;
+  border-top:1px solid var(--line2);
   transition:padding .25s ease,background .25s ease;
 }
 
-.row:last-child{border-bottom:1px solid #e8e4d6}
+.row:last-child{border-bottom:1px solid var(--line2)}
 
 .row:hover{
   padding-left:18px;
   padding-right:18px;
-  background:#fff9c9;
+  background:var(--hover);
 }
 
 .row h3{
@@ -200,7 +265,7 @@ section.block{
   transition:color .2s,border-color .2s;
 }
 
-.links a:hover{color:#d9a800;border-color:#d9a800}
+.links a:hover{color:var(--hl);border-color:var(--hl)}
 
 .foot{
   display:flex;
@@ -220,13 +285,12 @@ section.block{
 
 /* ===== MOBILE ===== */
 @media(max-width:760px){
-  body{padding:12px}
   .nav{top:22px}
   .nav a{padding:7px 10px;font-size:14px}
-  .hero{padding:0 20px 24px;min-height:calc(100vh - 24px)}
+  .hero{padding:0 20px 24px;min-height:100vh}
   .big{
     white-space:normal;
-    font-size:25vw;
+    font-size:17vw;
     line-height:.88;
   }
   section.block{padding:80px 20px}
@@ -239,12 +303,15 @@ section.block{
 <body>
 
 <div class="nav" id="nav">
-  <span class="sun" aria-hidden="true">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+  <button class="sun" id="theme" type="button" aria-label="Toggle night mode">
+    <svg class="sunsvg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
       <circle cx="12" cy="12" r="4.2"/>
       <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/>
     </svg>
-  </span>
+    <svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/>
+    </svg>
+  </button>
   <a href="#hey" class="active">Hey</a>
   <a href="#work">Work</a>
   <a href="#story">Story</a>
@@ -255,7 +322,7 @@ section.block{
 
   <!-- HEY -->
   <header class="hero" id="hey">
-    <p class="tagline">data science 🧪 @ uc berkeley 🐻</p>
+    <p class="tagline">data science @ uc berkeley</p>
     <h1 class="big">Jamka Zulkhuu</h1>
   </header>
 
@@ -310,13 +377,25 @@ section.block{
 
     <div class="foot">
       <span>© 2026 Jamyandagva Zulkhuu</span>
-      <span>built in berkeley 🐻</span>
     </div>
   </section>
 
 </div>
 
 <script>
+(function(){
+  const root=document.documentElement;
+  try{ if(localStorage.getItem('theme')==='dark') root.setAttribute('data-theme','dark'); }catch(e){}
+  document.getElementById('theme').addEventListener('click',()=>{
+    const dark=root.getAttribute('data-theme')==='dark';
+    root.classList.add('theming');
+    clearTimeout(window.__themeT);
+    window.__themeT=setTimeout(()=>root.classList.remove('theming'),400);
+    if(dark) root.removeAttribute('data-theme'); else root.setAttribute('data-theme','dark');
+    try{ localStorage.setItem('theme',dark?'light':'dark'); }catch(e){}
+  });
+})();
+
 const io = new IntersectionObserver(es=>{
   es.forEach(e=>{
     if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
