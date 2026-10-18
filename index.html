@@ -465,9 +465,7 @@ const pretty=s=>s.replace(/[-_]+/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
 /* 1) projects/projects.json made by build-projects.js
    2) fallback: read the folder listing from a local dev server (python3 -m http.server) */
 async function fromGitHub(){
-  const h=location.hostname;
-  if(!h.endsWith('.github.io')) return null;
-  const owner=h.split('.')[0], repo=h; // user site: <name>.github.io
+  const owner='uuhkluz', repo='uuhkluz.github.io';
   const api=p=>fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${p}`).then(r=>r.ok?r.json():Promise.reject());
   const dirs=(await api('projects')).filter(x=>x.type==='dir'&&!x.name.startsWith('_'));
   return Promise.all(dirs.map(async d=>{
