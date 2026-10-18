@@ -314,6 +314,7 @@ section.block{
   </button>
   <a href="#hey" class="active">Hey</a>
   <a href="#work">Work</a>
+  <a href="projects.html">Projects</a>
   <a href="#story">Story</a>
   <a href="#chat">Chat</a>
 </div>
@@ -403,7 +404,7 @@ const io = new IntersectionObserver(es=>{
 },{threshold:.12});
 document.querySelectorAll('.fade').forEach(el=>io.observe(el));
 
-const links=[...document.querySelectorAll('#nav a')];
+const links=[...document.querySelectorAll('#nav a')].filter(a=>a.getAttribute('href').startsWith('#'));
 const ids=links.map(a=>a.getAttribute('href').slice(1));
 const spy=new IntersectionObserver(es=>{
   es.forEach(e=>{
