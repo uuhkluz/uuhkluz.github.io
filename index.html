@@ -324,8 +324,8 @@ html[data-theme="dark"]{--chip:#131a28}
 #projects-list .media{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
 #projects-list .media img,#projects-list .media iframe,#projects-list .media video{flex:0 0 auto;scroll-snap-align:start;border-radius:18px;border:1px solid var(--line2);background:var(--chip)}
 #projects-list .media img{height:420px;width:auto;max-width:100%}
-#projects-list .media iframe{width:230px;height:480px}
-#projects-list .media video{height:420px}
+#projects-list .media iframe{width:340px;height:700px;max-width:100%}
+#projects-list .media video{height:560px;max-width:100%}
 #projects-list .empty{color:var(--muted);font-size:18px;line-height:1.6}
 @media(max-width:760px){
   #projects-list .head{grid-template-columns:1fr;gap:10px}
@@ -520,7 +520,7 @@ function render(list){
     const files=p.files||[];
     const media=files.map(f=>{
       const u=base+f.split('/').map(encodeURIComponent).join('/');
-      return VID.test(f)?`<video src="${u}" controls playsinline muted loop></video>`:`<img src="${u}" alt="${esc(p.title)}" loading="lazy">`;
+      return VID.test(f)?`<video src="${u}" controls playsinline muted loop preload="metadata"></video>`:`<img src="${u}" alt="${esc(p.title)}" loading="lazy">`;
     });
     if(p.demo) media.unshift(`<iframe src="${base}${esc(p.demo)}" title="${esc(p.title)} demo" loading="lazy"></iframe>`);
     const tags=(p.tags||[]).map(t=>`<span>${esc(t)}</span>`).join('');
@@ -548,6 +548,7 @@ function render(list){
     const p=h.parentElement,open=!p.classList.contains('open');
     p.classList.toggle('open',open);
     h.setAttribute('aria-expanded',open);
+    p.querySelectorAll('video').forEach(v=>{ if(open){ v.play().catch(()=>{}); } else { v.pause(); } });
   }));
   const hash=decodeURIComponent(location.hash.slice(1));
   const target=hash&&document.getElementById(hash);
