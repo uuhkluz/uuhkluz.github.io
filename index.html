@@ -301,37 +301,48 @@ section.block{
 /* ===== PROJECTS (on home page) ===== */
 :root{--chip:#f3efe0}
 html[data-theme="dark"]{--chip:#131a28}
-#projects-list .proj{border-top:1px solid var(--line2)}
-#projects-list .proj:last-child{border-bottom:1px solid var(--line2)}
-#projects-list .head{width:100%;display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:24px;padding:34px 0;
-  background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer;transition:padding .25s ease,background .25s ease}
-#projects-list .head:hover,#projects-list .proj.open .head{padding-left:18px;padding-right:18px;background:var(--hover)}
-#projects-list .head h3{margin:0;font-size:clamp(26px,4.6vw,68px);line-height:1;font-weight:600;letter-spacing:-.05em}
-#projects-list .head .role{margin:12px 0 0;font-size:clamp(15px,1.6vw,22px);color:var(--muted);letter-spacing:-.02em}
-#projects-list .head .meta{display:flex;align-items:center;gap:16px;font-size:15px;color:var(--muted);white-space:nowrap}
-#projects-list .plus{font-size:26px;line-height:1;transition:transform .25s ease}
-#projects-list .proj.open .plus{transform:rotate(45deg)}
-#projects-list .pbody{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
-#projects-list .proj.open .pbody{grid-template-rows:1fr}
-#projects-list .pbody > div{overflow:hidden}
-#projects-list .inner{padding:10px 18px 44px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px}
-#projects-list .desc{margin:0;font-size:clamp(17px,1.5vw,22px);line-height:1.5;letter-spacing:-.015em;max-width:640px}
-#projects-list .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-#projects-list .tags span{padding:6px 12px;border-radius:999px;background:var(--chip);font-size:13px;font-weight:500}
-#projects-list .plinks{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
-#projects-list .plinks a{font-size:17px;font-weight:500;border-bottom:2px solid var(--ink);padding-bottom:2px;transition:color .2s,border-color .2s}
-#projects-list .plinks a:hover{color:var(--hl);border-color:var(--hl)}
-#projects-list .media{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
-#projects-list .media img,#projects-list .media iframe,#projects-list .media video{flex:0 0 auto;scroll-snap-align:start;border-radius:18px;border:1px solid var(--line2);background:var(--chip)}
-#projects-list .media img{height:420px;width:auto;max-width:100%}
-#projects-list .media iframe{width:340px;height:700px;max-width:100%}
-#projects-list .media video{height:560px;max-width:100%}
-#projects-list .empty{color:var(--muted);font-size:18px;line-height:1.6}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.pcard{position:relative;display:block;width:100%;aspect-ratio:1/1;padding:0;border:0;border-radius:30px;overflow:hidden;
+  background:var(--chip);cursor:pointer;color:#fff;text-align:left;font:inherit;
+  transition:transform .3s ease,box-shadow .3s ease}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.18)}
+.pcard .cv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .5s ease}
+.pcard:hover .cv{transform:scale(1.04)}
+.pcard .nocv{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-.05em;color:var(--muted)}
+.pcard .cap{position:absolute;left:0;right:0;bottom:0;padding:70px 24px 22px;
+  background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,0))}
+.pcard h3{margin:0;font-size:clamp(24px,2.6vw,36px);line-height:1;font-weight:600;letter-spacing:-.045em}
+.pcard .role{margin:8px 0 0;font-size:15px;opacity:.85;letter-spacing:-.01em}
+.empty{color:var(--muted);font-size:18px;line-height:1.6}
+
+.pm{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px;
+  background:rgba(0,0,0,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.pm.open{display:flex}
+.pm-box{position:relative;width:min(1100px,100%);max-height:calc(100vh - 48px);overflow:auto;background:var(--card);color:var(--ink);
+  border-radius:30px;padding:44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;animation:pmin .3s ease}
+@keyframes pmin{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.pm-x{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;border:0;background:var(--chip);color:var(--ink);
+  font-size:22px;line-height:1;cursor:pointer;z-index:2}
+.pm-x:hover{background:var(--hover)}
+.pm h3{margin:0;font-size:clamp(34px,5vw,64px);line-height:1;font-weight:700;letter-spacing:-.055em}
+.pm .role{margin:12px 0 0;font-size:clamp(16px,1.6vw,22px);color:var(--muted);letter-spacing:-.02em}
+.pm .desc{margin:26px 0 0;font-size:clamp(17px,1.5vw,21px);line-height:1.5;letter-spacing:-.015em}
+.pm .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pm .tags span{padding:6px 12px;border-radius:999px;background:var(--chip);font-size:13px;font-weight:500}
+.pm .plinks{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
+.pm .plinks a{font-size:17px;font-weight:500;border-bottom:2px solid var(--ink);padding-bottom:2px;transition:color .2s,border-color .2s}
+.pm .plinks a:hover{color:var(--hl);border-color:var(--hl)}
+.pm .media{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;align-items:flex-start}
+.pm .media img,.pm .media iframe,.pm .media video{flex:0 0 auto;scroll-snap-align:start;border-radius:18px;border:1px solid var(--line2);background:var(--chip)}
+.pm .media img{height:520px;width:auto;max-width:100%}
+.pm .media iframe{width:340px;height:700px;max-width:100%}
+.pm .media video{height:520px;max-width:100%}
+body.pm-lock{overflow:hidden}
 @media(max-width:760px){
-  #projects-list .head{grid-template-columns:1fr;gap:10px}
-  #projects-list .inner{grid-template-columns:1fr;gap:26px;padding:10px 0 36px}
-  #projects-list .head:hover,#projects-list .proj.open .head{padding-left:0;padding-right:0}
-  #projects-list .media img{height:320px}
+  .pgrid{grid-template-columns:1fr}
+  .pm{padding:0;align-items:flex-end}
+  .pm-box{grid-template-columns:1fr;gap:26px;padding:28px 20px 32px;border-radius:26px 26px 0 0;max-height:92vh}
+  .pm .media img,.pm .media video{height:380px}
 }
 </style>
 </head>
@@ -395,7 +406,7 @@ html[data-theme="dark"]{--chip:#131a28}
   <!-- PROJECTS -->
   <section class="block fade" id="projects">
     <p class="label">Projects</p>
-    <div id="projects-list"></div>
+    <div id="projects-list" class="pgrid"></div>
   </section>
 
   <!-- STORY -->
@@ -424,6 +435,8 @@ html[data-theme="dark"]{--chip:#131a28}
   </section>
 
 </div>
+
+<div class="pm" id="pm" aria-hidden="true"><div class="pm-box" role="dialog" aria-modal="true"><button class="pm-x" id="pm-x" type="button" aria-label="Close">×</button><div id="pm-content" style="display:contents"></div></div></div>
 
 <script>
 (function(){
@@ -510,50 +523,53 @@ async function loadProjects(){
 function render(list){
   const box=document.getElementById('projects-list');
   if(!list.length){
-    box.innerHTML=`<div class="empty">No projects yet. Make a folder in <code>projects/</code> (e.g. <code>projects/my-app/</code>), add a <code>project.json</code> and a <code>cover.png</code>, then run <code>node build-projects.js</code>.</div>`;
+    box.innerHTML='<div class="empty">No projects yet.</div>';
     return;
   }
+  const url=(p,f)=>`projects/${encodeURIComponent(p.folder)}/`+f.split('/').map(encodeURIComponent).join('/');
   box.innerHTML=list.map((p,i)=>{
-    const base=`projects/${encodeURIComponent(p.folder)}/`;
     const files=p.files||[];
-    const media=files.map(f=>{
-      const u=base+f.split('/').map(encodeURIComponent).join('/');
-      return VID.test(f)?`<video src="${u}" controls playsinline muted loop preload="metadata"></video>`:`<img src="${u}" alt="${esc(p.title)}" loading="lazy">`;
-    });
-    if(p.demo) media.unshift(`<iframe src="${base}${esc(p.demo)}" title="${esc(p.title)} demo" loading="lazy"></iframe>`);
-    const tags=(p.tags||[]).map(t=>`<span>${esc(t)}</span>`).join('');
-    const links=(p.links||[]).map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`).join('');
-    return `
-    <article class="proj" id="${esc(p.folder)}">
-      <button class="head" type="button" aria-expanded="false">
-        <div><h3>${esc(p.title)}</h3>${p.role?`<p class="role">${esc(p.role)}</p>`:''}</div>
-        <div class="meta"><span>${esc(p.date||'')}</span><span class="plus">+</span></div>
-      </button>
-      <div class="pbody"><div>
-        <div class="inner">
-          <div>
-            <p class="desc">${esc(p.description||'')}</p>
-            ${tags?`<div class="tags">${tags}</div>`:''}
-            ${links?`<div class="plinks">${links}</div>`:''}
-          </div>
-          ${media.length?`<div class="media">${media.join('')}</div>`:''}
-        </div>
-      </div></div>
-    </article>`;
+    const img=files.find(f=>IMG.test(f));
+    const vid=files.find(f=>VID.test(f));
+    const cv=img?`<img class="cv" src="${url(p,img)}" alt="${esc(p.title)}" loading="lazy">`
+      :vid?`<video class="cv" src="${url(p,vid)}#t=0.5" muted playsinline preload="metadata"></video>`
+      :`<div class="nocv">${esc(p.title)}</div>`;
+    return `<button class="pcard" type="button" data-i="${i}" aria-label="Open ${esc(p.title)}">
+      ${cv}
+      <div class="cap"><h3>${esc(p.title)}</h3>${p.role?`<p class="role">${esc(p.role)}</p>`:''}</div>
+    </button>`;
   }).join('');
 
-  box.querySelectorAll('.head').forEach(h=>h.addEventListener('click',()=>{
-    const p=h.parentElement,open=!p.classList.contains('open');
-    p.classList.toggle('open',open);
-    h.setAttribute('aria-expanded',open);
-    p.querySelectorAll('video').forEach(v=>{ if(open){ v.play().catch(()=>{}); } else { v.pause(); } });
-  }));
-  const hash=decodeURIComponent(location.hash.slice(1));
-  const target=hash&&document.getElementById(hash);
-  if(target&&target.classList.contains('proj')){
-    target.querySelector('.head').click();
-    setTimeout(()=>target.scrollIntoView({block:'start',behavior:'smooth'}),300);
+  const pm=document.getElementById('pm'), pc=document.getElementById('pm-content');
+  function openP(i){
+    const p=list[i], files=p.files||[];
+    const media=files.map(f=>VID.test(f)
+      ?`<video src="${url(p,f)}" controls playsinline muted loop preload="metadata"></video>`
+      :`<img src="${url(p,f)}" alt="${esc(p.title)}" loading="lazy">`);
+    if(p.demo) media.unshift(`<iframe src="projects/${encodeURIComponent(p.folder)}/${esc(p.demo)}" title="${esc(p.title)} demo"></iframe>`);
+    const tags=(p.tags||[]).map(t=>`<span>${esc(t)}</span>`).join('');
+    const links=(p.links||[]).map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`).join('');
+    pc.innerHTML=`<div>
+        <h3>${esc(p.title)}</h3>
+        ${p.role||p.date?`<p class="role">${esc([p.role,p.date].filter(Boolean).join(' · '))}</p>`:''}
+        <p class="desc">${esc(p.description||'')}</p>
+        ${tags?`<div class="tags">${tags}</div>`:''}
+        ${links?`<div class="plinks">${links}</div>`:''}
+      </div>
+      ${media.length?`<div class="media">${media.join('')}</div>`:''}`;
+    pm.classList.add('open'); pm.setAttribute('aria-hidden','false');
+    document.body.classList.add('pm-lock');
+    pc.querySelectorAll('video').forEach(v=>v.play().catch(()=>{}));
   }
+  function closeP(){
+    pm.classList.remove('open'); pm.setAttribute('aria-hidden','true');
+    document.body.classList.remove('pm-lock');
+    pc.innerHTML='';
+  }
+  box.querySelectorAll('.pcard').forEach(c=>c.addEventListener('click',()=>openP(+c.dataset.i)));
+  document.getElementById('pm-x').onclick=closeP;
+  pm.addEventListener('click',e=>{ if(e.target===pm) closeP(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeP(); });
 }
 
 loadProjects().then(render);
