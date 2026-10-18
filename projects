@@ -1,0 +1,44 @@
+[
+  {
+    "folder": "enaction",
+    "title": "Enaction",
+    "role": "Founder & Developer",
+    "date": "2025",
+    "description": "A commuter app for students who travel to campus, built around real schedules and routes. Replace this text with your own description.",
+    "tags": [
+      "Product",
+      "Mobile",
+      "Research"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/"
+      }
+    ],
+    "files": []
+  },
+  {
+    "folder": "studyspot",
+    "title": "StudySpot",
+    "role": "Founder & Developer",
+    "date": "2025",
+    "description": "An app that helps students find the right place to study on campus. Browse spots by noise level, outlets, seating and hours. Replace this text with your own description.",
+    "tags": [
+      "Product",
+      "iOS",
+      "Data"
+    ],
+    "links": [
+      {
+        "label": "Live site",
+        "url": "https://example.com"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/"
+      }
+    ],
+    "files": []
+  }
+]
