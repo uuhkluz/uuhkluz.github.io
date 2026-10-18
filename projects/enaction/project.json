@@ -1,0 +1,10 @@
+{
+  "title": "Enaction",
+  "role": "Founder & Developer",
+  "date": "2025",
+  "description": "A commuter app for students who travel to campus, built around real schedules and routes. Replace this text with your own description.",
+  "tags": ["Product", "Mobile", "Research"],
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/" }
+  ]
+}

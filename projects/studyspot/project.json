@@ -1,0 +1,11 @@
+{
+  "title": "StudySpot",
+  "role": "Founder & Developer",
+  "date": "2025",
+  "description": "An app that helps students find the right place to study on campus. Browse spots by noise level, outlets, seating and hours. Replace this text with your own description.",
+  "tags": ["Product", "iOS", "Data"],
+  "links": [
+    { "label": "Live site", "url": "https://example.com" },
+    { "label": "GitHub", "url": "https://github.com/" }
+  ]
+}
