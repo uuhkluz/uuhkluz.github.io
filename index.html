@@ -219,8 +219,9 @@ section.block{padding:120px 52px;border-top:1px solid var(--line)}
 
 /* STORY */
 .story-text{
-  margin:0;
+  margin:0 0 0 auto;      /* pushes the block to the right edge */
   max-width:980px;
+  text-align:right;       /* remove this line if you want each line to start at the block's left edge */
   font-size:clamp(32px,6vw,92px);
   line-height:1.02;
   font-weight:600;
@@ -271,6 +272,7 @@ section.block{padding:120px 52px;border-top:1px solid var(--line)}
   section.block{padding:80px 20px}
   .row{grid-template-columns:1fr;gap:10px}
   .foot{flex-direction:column;gap:6px;margin-top:70px}
+  .story-text{margin:0;text-align:left}
 }
 
 /* PROJECTS */
